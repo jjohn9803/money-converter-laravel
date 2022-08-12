@@ -72,11 +72,11 @@ Route::group(['middleware' => 'setLocale'], function () {
     Route::post('/email/exist', [HomeController::class, 'exist_email']);
     Route::get('/rt_fxes', [FxController::class, 'getRealtimeFxes']);
 });
-Route::get('/get-notification', [HomeController::class, 'getNotification']);
-Route::group(['middleware' => ['auth', 'setLocale']], function () {
+
+Route::group(['middleware' => ['setLocale']], function () {
     Route::get('/logout', [LogoutController::class, 'perform']);
 
-    //Route::get('/get-notification', [HomeController::class, 'getNotification']);
+    Route::get('/get-notification', [HomeController::class, 'getNotification']);
     //Route::get('/get-notification/{id}', [HomeController::class, 'getNotificationById']);
     Route::get('/view-notification', [HomeController::class, 'viewNotification'])->name('view-notification');
     Route::put('/update-notification', [HomeController::class, 'updateNotification']);
