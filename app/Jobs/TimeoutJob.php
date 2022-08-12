@@ -45,6 +45,7 @@ class TimeoutJob implements ShouldQueue
                 'reason_id' => -1,
                 'status' => 1,
             ]);
+            Log::debug($this->transaction->id.' has been rejected due to timeout!');
         }
     }
 }
