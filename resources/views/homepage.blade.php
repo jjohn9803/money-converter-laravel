@@ -645,6 +645,7 @@ http://www.tooplate.com/view/2095-level
             /* if (alpha_onchange) {
                 append += "</optgroup>";
             } */
+            console.log(append);
             select.append(append);
         }
 
