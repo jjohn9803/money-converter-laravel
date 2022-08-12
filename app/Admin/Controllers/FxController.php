@@ -24,7 +24,7 @@ class FxController extends AdminController
      */
     protected function title()
     {
-        return __('admin.custom.fxes.title');
+        return __('admin.custom.fxes.title').'a';
     }
     public static $usd_to_myr = -1;
     public static $realtime_curr_list = [];
