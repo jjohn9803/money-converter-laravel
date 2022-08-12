@@ -65,7 +65,7 @@ class FxController extends AdminController
             $create->select('result_currency_id', __('admin.custom.fxes.result_curr'))
                 ->options(Currency::all()->except(1)->pluck('name', 'id'))
                 ->rules('required');
-            $create->decimal('fx_rate', __('admin.custom.fxes.fx_rate'))->rules('required|numeric')->placeholder(__('admin.custom.fxes.input_fx_rate'));
+            //$create->decimal('fx_rate', __('admin.custom.fxes.fx_rate'))->rules('required|numeric')->placeholder(__('admin.custom.fxes.input_fx_rate'));
         });
         $grid->filter(function ($filter) {
             $filter->like('result_currency.name', __('admin.custom.fxes.result_curr'));
