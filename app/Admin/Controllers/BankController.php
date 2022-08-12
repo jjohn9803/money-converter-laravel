@@ -52,13 +52,16 @@ class BankController extends AdminController
         $grid->column('name', __('admin.custom.banks.bank_name'));
         $grid->column(__('admin.custom.banks.country'))->modal(__('admin.custom.banks.country'), function ($model) {
             $country_id = $model->country_id;
-            sort($country_id);
-            $country_list = array();
-            foreach ($country_id as $key => $value) {
-                $select_country = Country::find($value)->only('id', 'name', 'created_at');
-                array_push($country_list, $select_country);
+            if($country_id != null){
+                sort($country_id);
+                $country_list = array();
+                foreach ($country_id as $key => $value) {
+                    $select_country = Country::find($value)->only('id', 'name', 'created_at');
+                    array_push($country_list, $select_country);
+                }
+                return new Table([__('Id'), __('admin.custom.countries.name'), __('admin.custom.created_at')], $country_list);
             }
-            return new Table([__('Id'), __('admin.custom.countries.name'), __('admin.custom.created_at')], $country_list);
+            return '';
         });
         /* $grid->column(__('admin.custom.banks.country'))->display(function () {
             return $this->country->name;
