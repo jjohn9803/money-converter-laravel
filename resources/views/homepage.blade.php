@@ -739,12 +739,16 @@ http://www.tooplate.com/view/2095-level
             }
             var country_id = parseInt((state.id).split(".")[1]);
             //var baseUrl = "{{ asset('assets/img/flag') }}";
-            var $state = $(
-                "<span style='margin-right:6px;white-space:nowrap;text-overflow:ellipsis;'><span class='fi fi-" +
-                $countries[country_id - 1]['alpha_2_code']
-                .toLowerCase() + " mx-2'></span>" +
-                state.text + '</span>'
-            );
+            if ($countries[country_id - 1] != null) {
+                var $state = $(
+                    "<span style='margin-right:6px;white-space:nowrap;text-overflow:ellipsis;'><span class='fi fi-" +
+                    $countries[country_id - 1]['alpha_2_code']
+                    .toLowerCase() + " mx-2'></span>" +
+                    state.text + '</span>'
+                );
+            }else{
+                return state.text;
+            }
 
             return $state;
         };
@@ -1260,7 +1264,7 @@ http://www.tooplate.com/view/2095-level
                                     'recipient_receipt_img_path'
                                 ] +
                                 "' class='notification-icon-main' alt='Girl in a jacket' style='left:10px;border: 1px solid rgba(231, 231, 232,0.5);' width='52' height='52'>";
-                        }else if (hasYourReceiptImg) {
+                        } else if (hasYourReceiptImg) {
                             //console.log(element['transasction']['recipient_receipt_img_path']);
                             body +=
                                 "<img src='{{ URL::asset('/receiptAttach') }}/" + element['transasction'][
