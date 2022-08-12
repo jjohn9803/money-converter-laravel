@@ -131,13 +131,13 @@
                                 </div>
                                 <div class="form-group tm-form-element tm-form-element-100 mx-auto custom-form-element">
                                     <div class="btn-group tm-form-exchange row">
-                                        <div class="col-lg-6 col-md-8 col-sm-8 col-xs-12">
+                                        <div class="col-lg-7 col-md-8 col-sm-8 col-xs-12">
                                             <span
                                                 class="custom-floating-span custom-floating-span2">{{ __('content.exchange.result-hint') }}</span>
                                             <input class="custom-floating-input" type="text"
                                                 id="result_amt_homePage" value="0">
                                         </div>
-                                        <div class="col-lg-6 col-md-4 col-sm-4 col-xs-12" style="padding:0;">
+                                        <div class="col-lg-5 col-md-4 col-sm-4 col-xs-12" style="padding:0;">
                                             <select class="js-example-basic-single" name="state"
                                                 style="display:none;" id="sel_to_curr">
                                             </select>
