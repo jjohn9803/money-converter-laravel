@@ -77,8 +77,8 @@ class HomeController extends Controller
             $fake_name = \Faker\Factory::create()->userName;
             $fake_name = substr($fake_name, 0, -3) . '***';
             $fake_curr_get = Currency::has('result_currency')->where('id', '!=', 1)->get();
-            if ($fake_curr_get) {
-                $fake_curr = Currency::has('result_currency')->where('id', '!=', 1)->get()->random();
+            if ($fake_curr_get->count() >0) {
+                $fake_curr = $fake_curr_get->random();
                 $fake_country = Country::find($fake_curr->id);
                 $fake_country_name = $fake_country->name;
                 $fake_minutes = rand(3, 15);
