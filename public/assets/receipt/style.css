@@ -240,52 +240,51 @@ form .btn.btn-primary:hover {
 }
 
 .timer-title {
-    left:50%;
-    transform:translateX(-50%);
-    /* left: 12.5px; */
-    top: -17.5px;
+    position: absolute;
+    margin-left: 50%;
+    transform: translate(-50%, 0);
     font-weight: 600;
     color: rgb(0, 0, 0, 0.66) !important;
+    width: max-content;
 }
 
 .timer-minutes-number {
-    position: absolute !important;
-    left: 27.5px;
-    top: 10px;
-    /* color: brown !important; */
+    position: absolute;
+    left: 15%;
+    top: 20px;
     font-size: 24px !important;
 }
 
 .timer-minutes-text {
     position: absolute;
-    left: 20%;
-    top: 45px;
+    left: 7.5px;
+    top: 50px;
     color: grey !important;
     opacity: 0.66;
     font-size: 14px;
 }
 
 .timer-symbol {
-    position: absolute !important;
-    left: 10px;
-    top: 45px;
+    position: absolute;
+    transform: translate(-50%, 0);
+    left: 50%;
+    top: 25px;
     color: grey !important;
     opacity: 0.66;
     font-size: 14px !important;
 }
 
 .timer-seconds-number {
-    position: absolute !important;
-    left: 97.5px;
-    top: 10px;
-    /* color: brown !important; */
+    position: absolute;
+    right: 15%;
+    top: 20px;
     font-size: 24px !important;
 }
 
 .timer-seconds-text {
     position: absolute;
-    left: 67.5%;
-    top: 45px;
+    right: 7.5px;
+    top: 50px;
     color: grey !important;
     opacity: 0.66;
     font-size: 14px;
