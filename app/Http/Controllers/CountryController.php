@@ -56,6 +56,10 @@ class CountryController extends Controller
 
     public function index()
     {
+        return Notification::with(['transasction'])
+                //->join('user', 'user.id', 'notifications.user_id')
+                ->with(['reason'])
+                ->where('notifications.user_id', '=', Auth::user()->id);
         $v = \Faker\Factory::create()->unixTime($max = 'now');
         $re = 'hey';
         while (Transaction::where('ref_no', '=', $v)->exists()) {
