@@ -1074,6 +1074,7 @@ http://www.tooplate.com/view/2095-level
                         //refreshNotificationList();
                     },
                     error: function(data) {
+                        console.log('nande');
                         console.log(data);
                     }
                 });
