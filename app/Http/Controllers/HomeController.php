@@ -34,6 +34,7 @@ use Illuminate\Support\Facades\Session;
 use Illuminate\Contracts\Validation\Factory as ValidationFactory;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Log;
 
 class HomeController extends Controller
 {
@@ -424,7 +425,7 @@ class HomeController extends Controller
             'ref_no' => $uniqueRefNo,
             'status' => 1,
         ]);
-
+        Log::debug($transaction->created_at->addMinutes(10));
         $expired_date = $transaction->created_at->addMinutes(10);
         TimeoutJob::dispatch($transaction)->delay($expired_date);
         $message = "##" . $transaction->id . "##";
