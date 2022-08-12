@@ -645,7 +645,6 @@ http://www.tooplate.com/view/2095-level
             /* if (alpha_onchange) {
                 append += "</optgroup>";
             } */
-            console.log(append);
             select.append(append);
         }
 
@@ -741,6 +740,7 @@ http://www.tooplate.com/view/2095-level
             var country_id = parseInt((state.id).split(".")[1]);
             //var baseUrl = "{{ asset('assets/img/flag') }}";
             if ($countries[country_id - 1] != null) {
+                console.log($countries[country_id - 1]);
                 var $state = $(
                     "<span style='margin-right:6px;white-space:nowrap;text-overflow:ellipsis;'><span class='fi fi-" +
                     $countries[country_id - 1]['alpha_2_code']
