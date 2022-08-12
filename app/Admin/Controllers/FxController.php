@@ -61,12 +61,6 @@ class FxController extends AdminController
         $grid = new Grid(new Fx());
         $grid->disableBatchActions();
         $grid->model()->orderBy('created_at', 'desc');
-        $grid->quickCreate(function (Grid\Tools\QuickCreate $create) {
-            $create->select('result_currency_id', __('admin.custom.fxes.result_curr'))
-                ->options(Currency::all()->except(1)->pluck('name', 'id'))
-                ->rules('required');
-            $create->decimal('fx_rate', __('admin.custom.fxes.fx_rate'));
-        });
         $grid->filter(function ($filter) {
             $filter->like('result_currency.name', __('admin.custom.fxes.result_curr'));
             $filter->between('fx_rate', __('admin.custom.fxes.fx_rate'));
@@ -162,7 +156,12 @@ class FxController extends AdminController
             return new Table([__('admin.custom.fxes.fx_rate'), __('admin.custom.created_at')], $history->toArray());
         });
         //$grid->column('updated_at', __('Updated at'))->date('Y-m-d');
-
+        $grid->quickCreate(function (Grid\Tools\QuickCreate $create) {
+            $create->select('result_currency_id', __('admin.custom.fxes.result_curr'))
+                ->options(Currency::all()->except(1)->pluck('name', 'id'))
+                ->rules('required');
+            $create->decimal('fx_rate', __('admin.custom.fxes.fx_rate'))->rules('required|numeric')->placeholder(__('admin.custom.fxes.input_fx_rate'));
+        });
         return $grid;
     }
 
