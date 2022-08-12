@@ -235,6 +235,7 @@
         //
         var bank_accounts_support = false;
         $bank_accounts.forEach(element => {
+            console.log(element['country_id']);
             if (element['country_id'].indexOf(country_id) > -1) {
                 bank_accounts_support = true;
             }
