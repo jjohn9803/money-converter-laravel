@@ -240,8 +240,9 @@ form .btn.btn-primary:hover {
 }
 
 .timer-title {
+    top: -17.5px;
     position: absolute;
-    margin-left: 50%;
+    left: 50%;
     transform: translate(-50%, 0);
     font-weight: 600;
     color: rgb(0, 0, 0, 0.66) !important;
