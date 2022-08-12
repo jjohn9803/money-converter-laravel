@@ -73,7 +73,7 @@ Route::group(['middleware' => 'setLocale'], function () {
     Route::get('/rt_fxes', [FxController::class, 'getRealtimeFxes']);
 });
 
-Route::group(['middleware' => 'setLocale'], function () {
+Route::group(['middleware' => ['auth', 'setLocale']], function () {
     Route::get('/logout', [LogoutController::class, 'perform']);
 
     Route::get('/get-notification', [HomeController::class, 'getNotification']);
