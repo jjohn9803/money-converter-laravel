@@ -76,22 +76,25 @@ class HomeController extends Controller
         for ($i = 0; $i < 10; $i++) {
             $fake_name = \Faker\Factory::create()->userName;
             $fake_name = substr($fake_name, 0, -3) . '***';
-            $fake_curr = Currency::has('result_currency')->where('id', '!=', 1)->get()->random();
-            $fake_country = Country::find($fake_curr->id);
-            $fake_country_name = $fake_country->name;
-            $fake_minutes = rand(3, 15);
-            $fake_curr_name = $fake_curr->name;
-            $fake_curr_min_amt = $fake_curr->min_amt;
-            $fake_curr_max_amt = $fake_curr->max_amt;
-            $fake_fxes = Fx::where('result_currency_id', '=', $fake_curr->id)->first()->fx_rate;
-            $fake_amount = number_format((rand($fake_curr_min_amt, $fake_curr_max_amt) * 0.005), 2);
-            array_push($fake_data, __('content.exchange.marquee', [
-                'name' => $fake_name,
-                'country' => $fake_country_name,
-                'sec' => $fake_minutes,
-                'amount' => $fake_amount,
-                'currency' => $fake_curr_name,
-            ]));
+            $fake_curr_get = Currency::has('result_currency')->where('id', '!=', 1)->get();
+            if ($fake_curr_get) {
+                $fake_curr = Currency::has('result_currency')->where('id', '!=', 1)->get()->random();
+                $fake_country = Country::find($fake_curr->id);
+                $fake_country_name = $fake_country->name;
+                $fake_minutes = rand(3, 15);
+                $fake_curr_name = $fake_curr->name;
+                $fake_curr_min_amt = $fake_curr->min_amt;
+                $fake_curr_max_amt = $fake_curr->max_amt;
+                $fake_fxes = Fx::where('result_currency_id', '=', $fake_curr->id)->first()->fx_rate;
+                $fake_amount = number_format((rand($fake_curr_min_amt, $fake_curr_max_amt) * 0.005), 2);
+                array_push($fake_data, __('content.exchange.marquee', [
+                    'name' => $fake_name,
+                    'country' => $fake_country_name,
+                    'sec' => $fake_minutes,
+                    'amount' => $fake_amount,
+                    'currency' => $fake_curr_name,
+                ]));
+            }
         }
 
         $verified = null;
@@ -124,7 +127,7 @@ class HomeController extends Controller
         $homepage_hts = $home_pages->where('name', 'Hours Time Saved')->first()->value['value'];
         $homepage_fee = $home_pages->where('name', 'Fee')->first()->value['value'];
         $homepage_bank = $home_pages->where('name', 'Bank')->first()->value['value'];
-        
+
         return view('homepage')->with([
             'currencies' => $currencies,
             'countries' => $countries,
