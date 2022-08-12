@@ -739,6 +739,7 @@ http://www.tooplate.com/view/2095-level
             }
             var country_id = parseInt((state.id).split(".")[1]);
             //var baseUrl = "{{ asset('assets/img/flag') }}";
+            console.log(state.id);
             if ($countries[country_id - 1] != null) {
                 var $state = $(
                     "<span style='margin-right:6px;white-space:nowrap;text-overflow:ellipsis;'><span class='fi fi-" +
