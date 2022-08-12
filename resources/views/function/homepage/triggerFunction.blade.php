@@ -242,7 +242,7 @@
 
         if ($bank_accounts == [] || !bank_accounts_support) {
             console.log($bank_accounts);
-            console.log($bank_accounts.length());
+            console.log($bank_accounts.length);
             var curr = $('#sel_from_curr option:selected').text();
             Swal.fire(
                 "{!! __('content.swal.sorry') !!}",
