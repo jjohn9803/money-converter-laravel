@@ -749,6 +749,7 @@ http://www.tooplate.com/view/2095-level
                 );
             }else{
                 console.log('country: '+country_id);
+                console.log($countries);
                 console.log('countries: '+$countries[country_id - 1]);
                 return state.text;
             }
