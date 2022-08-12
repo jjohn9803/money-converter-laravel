@@ -404,27 +404,6 @@ class HomeController extends Controller
             'status' => '1',
         ]; */
 
-        return [
-            'user_id' => $uid,
-            'from_acc' => $request->your_bank_acc,
-            'from_bank' => $from_bank, //json
-            'your_receive_acc' => $request->your_receive_bank_acc,
-            'your_receive_bank' => $your_receive_bank, //json
-            'to_acc_id' => collect(
-                array_merge(
-                    json_decode($bank_accounts, true),
-                    ["bank_name" => $to_recipient->name]
-                )
-            ), //json
-            'from_curr_id' => $from_curr, //json
-            'to_curr_id' => $to_curr, //json
-            'fx_rate' => $fx_rate,
-            'from_amount' => $request->from_amount,
-            'to_amount' => $to_amount,
-            'ref_no' => $uniqueRefNo,
-            'status' => '1',
-        ];
-
         $transaction = Transaction::create([
             'user_id' => $uid,
             'from_acc' => $request->your_bank_acc,
@@ -443,7 +422,7 @@ class HomeController extends Controller
             'from_amount' => $request->from_amount,
             'to_amount' => $to_amount,
             'ref_no' => $uniqueRefNo,
-            'status' => '1',
+            'status' => 1,
         ]);
 
         $expired_date = $transaction->created_at->addMinutes(10);
