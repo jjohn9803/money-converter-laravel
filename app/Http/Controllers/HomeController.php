@@ -176,7 +176,6 @@ class HomeController extends Controller
     public function getNotification(Request $request)
     {
         if (request()->ajax() && Auth::check()) {
-            return response()->json();
             $notification = Notification::with(['transasction'])
                 //->join('user', 'user.id', 'notifications.user_id')
                 ->with(['reason'])
@@ -202,7 +201,11 @@ class HomeController extends Controller
                 $notification = $notification->orderBy('created_at', 'desc');
             }
             $notification = $notification->get();
-            return response()->json(['notification' => $notification]);
+            if($notification->count()>0){
+                return response()->json(['notification' => $notification]);
+            }else{
+                return response()->json();
+            }
         } else {
             return abort(404);
         }
