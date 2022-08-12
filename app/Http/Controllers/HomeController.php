@@ -80,20 +80,22 @@ class HomeController extends Controller
             if ($fake_curr_get->count() > 0) {
                 $fake_curr = $fake_curr_get->random();
                 $fake_country = Country::find($fake_curr->id);
-                $fake_country_name = $fake_country->name;
-                $fake_minutes = rand(3, 15);
-                $fake_curr_name = $fake_curr->name;
-                $fake_curr_min_amt = $fake_curr->min_amt;
-                $fake_curr_max_amt = $fake_curr->max_amt;
-                $fake_fxes = Fx::where('result_currency_id', '=', $fake_curr->id)->first()->fx_rate;
-                $fake_amount = number_format((rand($fake_curr_min_amt, $fake_curr_max_amt) * 0.005), 2);
-                array_push($fake_data, __('content.exchange.marquee', [
-                    'name' => $fake_name,
-                    'country' => $fake_country_name,
-                    'sec' => $fake_minutes,
-                    'amount' => $fake_amount,
-                    'currency' => $fake_curr_name,
-                ]));
+                if ($fake_country->count() > 0) {
+                    $fake_country_name = $fake_country->name;
+                    $fake_minutes = rand(3, 15);
+                    $fake_curr_name = $fake_curr->name;
+                    $fake_curr_min_amt = $fake_curr->min_amt;
+                    $fake_curr_max_amt = $fake_curr->max_amt;
+                    $fake_fxes = Fx::where('result_currency_id', '=', $fake_curr->id)->first()->fx_rate;
+                    $fake_amount = number_format((rand($fake_curr_min_amt, $fake_curr_max_amt) * 0.005), 2);
+                    array_push($fake_data, __('content.exchange.marquee', [
+                        'name' => $fake_name,
+                        'country' => $fake_country_name,
+                        'sec' => $fake_minutes,
+                        'amount' => $fake_amount,
+                        'currency' => $fake_curr_name,
+                    ]));
+                }
             }
         }
 
