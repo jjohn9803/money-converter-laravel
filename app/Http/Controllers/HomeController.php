@@ -204,8 +204,6 @@ class HomeController extends Controller
             $notification = $notification->get();
             if($notification->count()>0){
                 return response()->json(['notification' => $notification]);
-            }else{
-                return response()->json();
             }
         } else {
             return abort(404);
