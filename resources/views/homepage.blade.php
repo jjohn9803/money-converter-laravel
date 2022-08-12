@@ -739,7 +739,7 @@ http://www.tooplate.com/view/2095-level
             }
             var country_id = parseInt((state.id).split(".")[1]);
             //var baseUrl = "{{ asset('assets/img/flag') }}";
-            console.log(state.id);
+            console.log('state: '+state.id);
             if ($countries[country_id - 1] != null) {
                 var $state = $(
                     "<span style='margin-right:6px;white-space:nowrap;text-overflow:ellipsis;'><span class='fi fi-" +
@@ -748,8 +748,8 @@ http://www.tooplate.com/view/2095-level
                     state.text + '</span>'
                 );
             }else{
-                console.log(country_id);
-                console.log($countries[country_id - 1]);
+                console.log('country: '+country_id);
+                console.log('countries: '+$countries[country_id - 1]);
                 return state.text;
             }
 
