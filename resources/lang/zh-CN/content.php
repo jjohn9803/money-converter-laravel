@@ -181,6 +181,7 @@ return [
         'smtg-went-wrong' => '出了点问题',
         'under-maintenance' => '对不起。目前我们正在维护中。',
         'not-between-wh' => '对不起. 工作时间是在 :start ~ :end之间。',
+        'img-size-too-big'=> '图片尺寸不能大于:sizeMB.',
     ],
     'modal' => [
         'login' => [

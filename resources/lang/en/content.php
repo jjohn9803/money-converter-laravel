@@ -181,6 +181,7 @@ return [
         'smtg-went-wrong' => 'Something went wrong',
         'under-maintenance' => 'Sorry. Currently we are under maintenance.',
         'not-between-wh' => 'Sorry. Working hours is between :start ~ :end.',
+        'img-size-too-big'=> 'Image size cannot be bigger than :sizeMB.',
     ],
     'modal' => [
         'login' => [

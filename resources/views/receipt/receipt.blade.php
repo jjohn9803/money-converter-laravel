@@ -502,6 +502,13 @@
 
     $('#imgInp').on('change', function() {
         if ($('#imgInp').prop('files')) {
+            if (this.files[0].size > 2097152) {
+                Swal.fire("{!! __('content.swal.img-size-too-big', ['size' => '2']) !!}");
+                $('#preview-attach-receipt').css('display', 'none');
+                $('#preview-attach-receipt').attr('src', '');
+                this.value = "";
+                return;
+            }
             let reader = new FileReader();
             reader.onload = (e) => {
                 $('#preview-attach-receipt').attr('src', e.target.result);

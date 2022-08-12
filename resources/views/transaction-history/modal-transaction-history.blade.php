@@ -339,6 +339,16 @@
         });
     });
 
+    $('#imgInp').on('change', function() {
+        if ($('#imgInp').prop('files')) {
+            if (this.files[0].size > 2097152) {
+                Swal.fire("{!! __('content.swal.img-size-too-big', ['size' => '2']) !!}");
+                this.value = "";
+                return;
+            }
+        }
+    });
+
     $('#btnCancel').on('click', function() {
         var valid = false;
         $.ajax({
