@@ -235,12 +235,12 @@
         //
         var bank_accounts_support = false;
         $bank_accounts.forEach(element => {
-            console.log(element['country_id']);
             if (element['country_id'].indexOf(country_id) > -1) {
                 bank_accounts_support = true;
             }
         });
-
+        console.log('type: '+typeof($bank_accounts));
+        console.log($bank_accounts);
         if (!bank_accounts_support) {
             var curr = $('#sel_from_curr option:selected').text();
             Swal.fire(
