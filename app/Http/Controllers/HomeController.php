@@ -206,7 +206,7 @@ class HomeController extends Controller
                 $notification = $notification->orderBy('created_at', 'desc');
             }
             $notification = $notification->get();
-            if ($notification->count() > 0) {
+            if ($notification != null) {
                 return response()->json(['notification' => $notification]);
             }
         } else {
