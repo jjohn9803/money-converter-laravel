@@ -127,7 +127,7 @@
             $('#btnGetStarted').attr('data-target', '');
             return false;
         } */
-        
+
         if (!moment().isBetween(moment(wh_start, 'hh:mm:ss'), moment(wh_end, 'hh:mm:ss')) && wh_start !=
             wh_end) {
             Swal.fire(
@@ -195,18 +195,22 @@
         $banks.sort(function(a, b) {
             return compareStrings(a.name, b.name);
         }).forEach(function($data, $key) {
-            const my_country = $data['country_id'].map(str => {
-                return Number(str);
-            });
+            if ($data['country_id'] != null) {
+                const my_country = $data['country_id'].map(str => {
+                    return Number(str);
+                });
 
-            if (my_country.indexOf(country_id) > -1) {
-                $('#inputUserBankModal').append('<option value="' + $data['id'] + '">' + $data['name'] +
-                    '</option>');
-            }
-            if (my_country.indexOf(country_id2) > -1) {
-                $('#inputUserReceiveBankModal').append('<option value="' + $data['id'] + '">' + $data[
-                        'name'] +
-                    '</option>');
+                if (my_country.indexOf(country_id) > -1) {
+                    $('#inputUserBankModal').append('<option value="' + $data['id'] + '">' + $data[
+                            'name'] +
+                        '</option>');
+                }
+                if (my_country.indexOf(country_id2) > -1) {
+                    $('#inputUserReceiveBankModal').append('<option value="' + $data['id'] + '">' +
+                        $data[
+                            'name'] +
+                        '</option>');
+                }
             }
         });
 
