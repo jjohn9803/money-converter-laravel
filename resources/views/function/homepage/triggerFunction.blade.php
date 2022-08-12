@@ -239,9 +239,8 @@
                 bank_accounts_support = true;
             }
         });
-        console.log('type: '+typeof($bank_accounts));
-        console.log($bank_accounts);
-        if (!bank_accounts_support) {
+
+        if ($bank_accounts == [] || !bank_accounts_support) {
             var curr = $('#sel_from_curr option:selected').text();
             Swal.fire(
                 "{!! __('content.swal.sorry') !!}",
