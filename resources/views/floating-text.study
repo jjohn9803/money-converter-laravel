@@ -1,0 +1,32 @@
+<label class="custom-floating-label" for="name">
+    <input class="custom-floating-input" type="text" id="name" placeholder="Name">
+    <span class="custom-floating-span">Name</span>
+</label>
+
+<style>
+
+.custom-floating-input{
+    width:100%;
+    padding:10px 0px;
+    margin-top:20px;
+	padding: 0.6rem 0.75rem;
+}
+.custom-floating-input::placeholder{
+    opacity:0;
+}
+
+.custom-floating-span{
+    position:absolute;
+    left:20px;
+    bottom:200px;
+    transform:translateY(30px);
+    font-size:0.825em;
+    transition-duration:300ms;
+}
+
+.custom-floating-label:focus-within > .custom-floating-span,
+.custom-floating-input:not(:placeholder-shown) + .custom-floating-span{
+    color:purple;
+    transform:translateY(0px);
+}
+</style>

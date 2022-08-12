@@ -1,0 +1,167 @@
+[
+    {
+        "name": {
+            "en": "Mina",
+            "zh": "米娜"
+        },
+        "occupation": {
+            "en": "Singapore Tourguider",
+            "zh": "新加坡导游"
+        },
+        "comments": {
+            "en":"Good service, nice staff, we talked about a lot like the KYC process, business requirement, even the situation of remittance industry. Your guys are really squeezing your effort on improve your product! Keep moving forward.",
+            "zh":"服务很好，员工很好，我们聊了很多，比如 KYC 流程、业务需求，甚至汇款行业的情况。你们真的很努力改进产品！继续前进。"
+        },
+        "prof": "https://randomuser.me/api/portraits/women/10.jpg"
+    },
+    {
+        "name": {
+            "en": "Alex",
+            "zh": "亚历克斯"
+        },
+        "occupation": {
+            "en": "Japan Tokyo Logistics",
+            "zh": "日本东京物流"
+        },
+        "comments": {
+            "en":"The logistics company's work is very intensive, so it’s painful for me to go a long distance to remit money after work. With this platform, I can send money on my mobile phone, which is really convenient!",
+            "zh":"物流公司的工作很密集，下班后要长途汇款很痛苦。有了这个平台，我可以在手机上汇款，真的很方便"
+        },
+        "prof": "https://randomuser.me/api/portraits/men/15.jpg"
+    },
+    {
+        "name": {
+            "en": "Emma",
+            "zh": "艾玛"
+        },
+        "occupation": {
+            "en": "Austrilia Melbourne Foreign trade",
+            "zh": "澳大利亚墨尔本外贸"
+        },
+        "comments": {
+            "en":"Thanks to the staff who helped me solve the problem of expired documents until 11pm. I am very touched. I’m a fan fun of this platform! Come on!",
+            "zh":"感谢帮我解决文件过期问题一直到晚上 11 点的工作人员。我很感动。我是这个平台的粉丝！加油！"
+        },
+        "prof": "https://randomuser.me/api/portraits/men/20.jpg"
+    },
+    {
+        "name": {
+            "en": "Jason",
+            "zh": "杰森"
+        },
+        "occupation": {
+            "en": "Japan Nagoya IT",
+            "zh": "日本名古屋 IT"
+        },
+        "comments": {
+            "en":"I have used this platform for a long time. At the beginning, I gave them a try, and now I have become a loyal user.  Now my monthly salary is remitted back to Singapore through them. I trust this platform.",
+            "zh":"我用这个平台好久了，一开始我也试了一下，现在我已经成为忠实用户了，现在我的月薪都是通过他们汇回新加坡的，我信任这个平台"
+        },
+        "prof": "https://randomuser.me/api/portraits/men/65.jpg"
+    },
+    {
+        "name": {
+            "en": "Gigi",
+            "zh": "吉吉"
+        },
+        "occupation": {
+            "en": "Singapore Language teacher",
+            "zh": "新加坡语文老师"
+        },
+        "comments": {
+            "en":"I gave them a trial before the new year., The arrival speed was very fast and I was very surprised.  Now I have become their loyal user.",
+            "zh":"我在过年前给他们试用了，到货速度很快，很惊喜。现在我成了他们的忠实用户"
+        },
+        "prof": "https://randomuser.me/api/portraits/women/79.jpg"
+    },
+    {
+        "name": {
+            "en": "Keshou Chen",
+            "zh": "陈克首"
+        },
+        "occupation": {
+            "en": "HongKong Construction worker",
+            "zh": "香港建筑工人"
+        },
+        "comments": {
+            "en":"For those of us working abroad, this website saves us a lot of time, their exchange rate is better than the store! The fee is cheap! The customer service staff is nice and willing to help, really helpful!",
+            "zh":"对于我们这些在国外工作的人来说，这个网站为我们节省了很多时间，他们的汇率比商店好！费用便宜！客服人员很好，乐于助人，真的很有帮助！"
+        },
+        "prof": "https://randomuser.me/api/portraits/men/93.jpg"
+    },
+    {
+        "name": {
+            "en": "Mini C",
+            "zh": "小熙"
+        },
+        "occupation": {
+            "en": "Australia Delivery Man",
+            "zh": "澳洲送貨員"
+        },
+        "comments": {
+            "en":"I am working in Australia under Working Holiday Visa. There is a great demand for remittances andlots of my friends choose this website, because it is really convenient.",
+            "zh":"我在澳洲工作，持打工度假签证，汇款需求很大，很多朋友都选择这个网站，真的很方便"
+        },
+        "prof": "https://randomuser.me/api/portraits/women/97.jpg"
+    },
+    {
+        "name": {
+            "en": "Hao",
+            "zh": "浩"
+        },
+        "occupation": {
+            "en": "Japan Nagoya Chef",
+            "zh": "日本名古屋厨师"
+        },
+        "comments": {
+            "en":"Most remittance places are slow sending abroad andit often takes a lot of time to do everything. Poor internet infrustructure but the service of this platform is awesome!",
+            "zh":"大部分汇款地方汇款到国外都很慢，而且往往需要很长时间才能完成所有事情。互联网基础设施较差，但这个平台的服务很棒！"
+        },
+        "prof": "https://randomuser.me/api/portraits/men/62.jpg"
+    },
+    {
+        "name": {
+            "en": "Vivian",
+            "zh": "薇薇安"
+        },
+        "occupation": {
+            "en": "Singapore Clerk",
+            "zh": "新加坡文员"
+        },
+        "comments": {
+            "en":"In the beginning, I was worried about safety. Later, the customer service took good care of my questions and inquires, and I can check the progress of remittances on the app. It made me feel better.",
+            "zh":"一开始还担心安全问题，后来客服很好地处理了我的问题和咨询，我可以在app上查看汇款进度，让我感觉好多了"
+        },
+        "prof": "https://randomuser.me/api/portraits/men/56.jpg"
+    },
+    {
+        "name": {
+            "en": "Yamasaki Tatsuya",
+            "zh": "山崎达也"
+        },
+        "occupation": {
+            "en": "Japan Tokyo IT",
+            "zh": "日本东京 IT"
+        },
+        "comments": {
+            "en":"Overall, the experience was good, and their customer service patiently answered the confused process at the beginning. After the KYC, each time is very convenient, the exchange rate is good, low fee! It is not easy to struggle outside. Save as much as you can.",
+            "zh":"总体来说体验还不错，刚开始的时候他们的客服也耐心解答了困惑的过程。KYC之后，每次都很方便，汇率好，手续费低！不容易挣扎外面。尽可能多地保存"
+        },
+        "prof": "https://randomuser.me/api/portraits/men/41.jpg"
+    },
+    {
+        "name": {
+            "en": "Yu Zhang",
+            "zh": "张羽"
+        },
+        "occupation": {
+            "en": "New Zealand Wellington architector",
+            "zh": "新西兰惠灵顿建筑师"
+        },
+        "comments": {
+            "en":"It's so convenient! My family received it within two minutes! International speed! Their product design is very good, even if I don’t usually use my mobile phone, I have quickly become familiar with their process.",
+            "zh":"太方便了！我家两分钟就收到了！国际速度！他们的产品设计很好，即使我平时不使用手机，我也很快熟悉了他们的流程。"
+        },
+        "prof": "https://randomuser.me/api/portraits/men/33.jpg"
+    }
+]
