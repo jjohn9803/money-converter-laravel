@@ -240,7 +240,8 @@
             }
         });
 
-        if ($bank_accounts.length > 0 || !bank_accounts_support) {
+        if ($bank_accounts.length < 1 || !bank_accounts_support) {
+
             var curr = $('#sel_from_curr option:selected').text();
             Swal.fire(
                 "{!! __('content.swal.sorry') !!}",
