@@ -177,7 +177,7 @@ class HomeController extends Controller
     {
         //Auth::check()
         if (request()->ajax()) {
-            return;
+            //return;
             $notification = Notification::with(['transasction'])
                 //->join('user', 'user.id', 'notifications.user_id')
                 ->with(['reason'])
