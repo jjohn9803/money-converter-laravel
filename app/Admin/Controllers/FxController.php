@@ -24,7 +24,7 @@ class FxController extends AdminController
      */
     protected function title()
     {
-        return __('admin.custom.fxes.title').'a';
+        return __('admin.custom.fxes.title');
     }
     public static $usd_to_myr = -1;
     public static $realtime_curr_list = [];
@@ -106,10 +106,14 @@ class FxController extends AdminController
 
         $grid->column(__('admin.custom.fxes.real_fx_rate'))->display(function () {
             $curr_name = $this->result_currency->name;
-            if (empty(session('local_realtime_curr_list')[$curr_name]) || session('local_realtime_curr_list')[$curr_name] == null) {
-                return Self::convertBasedOnMYR($curr_name);
-            } else {
-                return session('local_realtime_curr_list')[$curr_name];
+            try {
+                if (empty(session('local_realtime_curr_list')[$curr_name]) || session('local_realtime_curr_list')[$curr_name] == null) {
+                    return Self::convertBasedOnMYR($curr_name);
+                } else {
+                    return session('local_realtime_curr_list')[$curr_name];
+                }
+            } catch (\Throwable $th) {
+                return -1;
             }
             /* if (empty(self::$local_realtime_curr_list[$curr_name]) || self::$local_realtime_curr_list[$curr_name] == null) {
                 return Self::convertBasedOnMYR($curr_name);
