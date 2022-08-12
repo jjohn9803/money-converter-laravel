@@ -21,7 +21,7 @@ use Illuminate\Support\Facades\Session;
 |
 */
 
-Route::get('routes', function () {
+/* Route::get('routes', function () {
     $routeCollection = Route::getRoutes();
 
     echo "<table style='width:100%'>";
@@ -40,7 +40,7 @@ Route::get('routes', function () {
         echo "</tr>";
     }
     echo "</table>";
-});
+}); */
 
 /* Route::group(['middleware' => 'setLocale:zh'], function () {
     
@@ -72,11 +72,11 @@ Route::group(['middleware' => 'setLocale'], function () {
     Route::post('/email/exist', [HomeController::class, 'exist_email']);
     Route::get('/rt_fxes', [FxController::class, 'getRealtimeFxes']);
 });
-
+Route::get('/get-notification', [HomeController::class, 'getNotification']);
 Route::group(['middleware' => ['auth', 'setLocale']], function () {
     Route::get('/logout', [LogoutController::class, 'perform']);
 
-    Route::get('/get-notification', [HomeController::class, 'getNotification']);
+    //Route::get('/get-notification', [HomeController::class, 'getNotification']);
     //Route::get('/get-notification/{id}', [HomeController::class, 'getNotificationById']);
     Route::get('/view-notification', [HomeController::class, 'viewNotification'])->name('view-notification');
     Route::put('/update-notification', [HomeController::class, 'updateNotification']);
