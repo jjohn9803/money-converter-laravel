@@ -80,7 +80,7 @@ class HomeController extends Controller
             if ($fake_curr_get->count() > 0) {
                 $fake_curr = $fake_curr_get->random();
                 $fake_country = Country::find($fake_curr->id);
-                if ($fake_country->count() > 0) {
+                if ($fake_country != null) {
                     $fake_country_name = $fake_country->name;
                     $fake_minutes = rand(3, 15);
                     $fake_curr_name = $fake_curr->name;
