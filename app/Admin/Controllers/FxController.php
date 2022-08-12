@@ -42,6 +42,7 @@ class FxController extends AdminController
                 session()->forget('fx_session');
                 session()->forget('realtime_curr_list');
                 session()->forget('local_realtime_curr_list');
+                session()->forget('usd_to_myr');
                 \Encore\Admin\Admin::script('console.log("load fx rate at first");');
             }
         }
@@ -51,6 +52,7 @@ class FxController extends AdminController
             $this->getRealTime();
             session()->put('realtime_curr_list', self::$realtime_curr_list);
             session()->put('local_realtime_curr_list', self::$local_realtime_curr_list);
+            session()->put('usd_to_myr', self::$usd_to_myr);
         }
 
         //self::apiLocal();
@@ -253,7 +255,7 @@ class FxController extends AdminController
 
     function convertBasedOnMYR($result_curr_name)
     {
-        $usd_to_curr = self::$usd_to_myr;
+        $usd_to_curr = session('usd_to_myr');
         if (array_key_exists($result_curr_name, session('realtime_curr_list'))) {
             $bresult_curr = session('realtime_curr_list')[$result_curr_name];
             $result_curr =  $bresult_curr / $usd_to_curr;

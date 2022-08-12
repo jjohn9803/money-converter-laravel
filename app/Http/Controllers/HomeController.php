@@ -77,7 +77,7 @@ class HomeController extends Controller
             $fake_name = \Faker\Factory::create()->userName;
             $fake_name = substr($fake_name, 0, -3) . '***';
             $fake_curr_get = Currency::has('result_currency')->where('id', '!=', 1)->get();
-            if ($fake_curr_get->count() >0) {
+            if ($fake_curr_get->count() > 0) {
                 $fake_curr = $fake_curr_get->random();
                 $fake_country = Country::find($fake_curr->id);
                 $fake_country_name = $fake_country->name;
@@ -204,7 +204,7 @@ class HomeController extends Controller
                 $notification = $notification->orderBy('created_at', 'desc');
             }
             $notification = $notification->get();
-            if($notification->count()>0){
+            if ($notification->count() > 0) {
                 return response()->json(['notification' => $notification]);
             }
         } else {
