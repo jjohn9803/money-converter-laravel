@@ -53,7 +53,7 @@
                                 </div>
                             </li>
                         @else
-                            <nav class="cus-nav nav-item" id='loginbefore'>
+                            <li class="cus-nav nav-item" id='loginbefore'>
                                 <ul class="cus-ul">
                                     <li class="cus-li">
                                         <a class="cus-a" data-toggle="modal" data-target="#loginModal">
@@ -61,7 +61,7 @@
                                         </a>
                                     </li>
                                 </ul>
-                            </nav>
+                            </li>
                         @endauth
                         <div class="dropdown cus-nav-lang-b">
                             <div class="dropdown-toggle" type="button" id="dropdownMenu3" data-toggle="dropdown"
