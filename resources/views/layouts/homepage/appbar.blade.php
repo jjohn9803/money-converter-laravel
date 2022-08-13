@@ -31,7 +31,7 @@
                             <a class="nav-link" href="#footer-section">{{ __('content.appbar.contact') }}</a>
                         </li>
                         @auth
-                            <li class="dropdown cus-nav-user-b">
+                            <div class="dropdown cus-nav-user-b">
                                 <div class="dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown"
                                     aria-haspopup="true"  style="white-space: nowrap;">
                                     <span class="nav-user">{{ auth()->user()->name }}</span>
@@ -51,9 +51,9 @@
                                     </li>
                                     <li class="cus-li2"><a id='logout'>{{ __('content.appbar.logout') }}</a></li>
                                 </div>
-                            </li>
+                            </div>
                         @else
-                            <li class="cus-nav nav-item" id='loginbefore'>
+                            <nav class="cus-nav nav-item" id='loginbefore'>
                                 <ul class="cus-ul">
                                     <li class="cus-li">
                                         <a class="cus-a" data-toggle="modal" data-target="#loginModal">
@@ -61,7 +61,7 @@
                                         </a>
                                     </li>
                                 </ul>
-                            </li>
+                            </nav>
                         @endauth
                         <div class="dropdown cus-nav-lang-b">
                             <div class="dropdown-toggle" type="button" id="dropdownMenu3" data-toggle="dropdown"
