@@ -2062,6 +2062,11 @@ span#select2-modalSelectBaseCurrency-container.select2-selection__rendered {
 	object-fit: contain;
 }
 
+.footer-icons ul {
+	padding: 0;
+	margin: 0;
+}
+
 .footer-icons ul li {
 	display: inline-block;
 }

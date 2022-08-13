@@ -52,6 +52,7 @@ http://www.tooplate.com/view/2095-level
 
     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script><!-- jQuery base library needed -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
     {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script> --}}
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -87,7 +88,7 @@ http://www.tooplate.com/view/2095-level
                 class="tm-section-down-arrow">
                 <polygon fill="#4ba5b1" points="0,0  100,0  50,60"></polygon>
             </svg>
-            <div class="container tm-pt-5 tm-pb-4">
+            <div class="container tm-pt-5 tm-pb-1">
                 <div class="row text-center">
                     <article class="col-sm-12 col-md-3 col-lg-3 col-xl-3 tm-article">
                         <i class="fa tm-fa-6x fa-thumbs-up tm-color-primary tm-margin-b-20"></i>
@@ -130,6 +131,7 @@ http://www.tooplate.com/view/2095-level
                 @include('layouts.homepage.comments')
             </div>
         </div>
+        @include('layouts/homepage/comments-sm')
         {{-- <div class="container">
             <div class="reviews-slider"></div>
         </div> --}}
@@ -555,6 +557,7 @@ http://www.tooplate.com/view/2095-level
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.8.2/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@srexi/purecounterjs/dist/purecounter_vanilla.js"></script>
     <script src="{{ asset('js/app.js') }}"></script>
+
     <script>
         new PureCounter();
         /*         // Plain javascript
@@ -743,11 +746,11 @@ http://www.tooplate.com/view/2095-level
             if (country != null) {
                 var $state = $(
                     "<span style='margin-right:6px;white-space:nowrap;text-overflow:ellipsis;'><span class='fi fi-" +
-                        country['alpha_2_code']
+                    country['alpha_2_code']
                     .toLowerCase() + " mx-2'></span>" +
                     state.text + '</span>'
                 );
-            }else{
+            } else {
                 return state.text;
             }
 

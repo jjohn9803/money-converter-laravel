@@ -150,7 +150,7 @@ return [
             'msg-1' => '<b>1.</b> Our proprietary anti-fraud and risk management system must be
             approved by the
             user',
-            'msg-2' => "<b>2.</b> Remitters' payment account (Debit Card) money availability and
+            'msg-2' => "<b>2.</b> Remitters' payment account money availability and
             transaction
             limits",
             'msg-3' => '<b>3.</b> Local banks of both remitters and recipients must have an open time

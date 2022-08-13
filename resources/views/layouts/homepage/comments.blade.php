@@ -208,9 +208,11 @@
         if (screenWidth < 500) {
             $('#appbar-reviews').css('display', 'none');
             $('#section-comment').css('display', 'none');
+            $('#section-comment-sm').css('display', 'block');
         } else {
             $('#section-comment').css('display', 'block');
             $('#appbar-reviews').css('display', 'block');
+            $('#section-comment-sm').css('display', 'none');
         }
     }
 
