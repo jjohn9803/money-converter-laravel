@@ -9,7 +9,7 @@
                     Level
                 </a>
                 <button type="button" id="nav-toggle" class="navbar-toggler collapsed" data-toggle="collapse"
-                    data-target="#mainNav" aria-expanded="false" aria-label="Toggle navigation">
+                    data-target="#mainNav"  aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div id="mainNav" class="collapse navbar-collapse tm-bg-tp">
@@ -31,9 +31,9 @@
                             <a class="nav-link" href="#footer-section">{{ __('content.appbar.contact') }}</a>
                         </li>
                         @auth
-                            <div class="dropdown cus-nav-user-b">
+                            <li class="dropdown cus-nav-user-b">
                                 <div class="dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown"
-                                    aria-haspopup="true" aria-expanded="false" style="white-space: nowrap;">
+                                    aria-haspopup="true"  style="white-space: nowrap;">
                                     <span class="nav-user">{{ auth()->user()->name }}</span>
                                 </div>
                                 <div class="dropdown-menu cus-nav-user-li" aria-labelledby="dropdownMenu2">
@@ -51,9 +51,9 @@
                                     </li>
                                     <li class="cus-li2"><a id='logout'>{{ __('content.appbar.logout') }}</a></li>
                                 </div>
-                            </div>
+                            </li>
                         @else
-                            <nav class="cus-nav nav-item" id='loginbefore'>
+                            <li class="cus-nav nav-item" id='loginbefore' style="height: 40px;">
                                 <ul class="cus-ul">
                                     <li class="cus-li">
                                         <a class="cus-a" data-toggle="modal" data-target="#loginModal">
@@ -61,15 +61,15 @@
                                         </a>
                                     </li>
                                 </ul>
-                            </nav>
+                            </li>
                         @endauth
-                        <div class="dropdown cus-nav-lang-b">
+                        <li class="dropdown cus-nav-lang-b">
                             <div class="dropdown-toggle" type="button" id="dropdownMenu3" data-toggle="dropdown"
-                                aria-haspopup="true" aria-expanded="false" style="white-space: nowrap;">
+                                aria-haspopup="true"  style="white-space: nowrap;">
                                 <span class="nav-user"><i class="fa fa-globe" style="font-size: 24px;"></i></span>
                                 <span class="nav-user2">{{ __('content.appbar.language.title') }}</span>
                             </div>
-                            <div class="dropdown-menu cus-nav-lang-li" aria-labelledby="dropdownMenu3">
+                            <ul class="dropdown-menu cus-nav-lang-li" aria-labelledby="dropdownMenu3">
                                 <li class="cus-li2" id='localeEn'>
                                     <a><span class='fi fi-us mx-2'></span>{{ __('content.appbar.language.en') }}</a>
                                 </li>
@@ -77,7 +77,7 @@
                                     <a><span class='fi fi-cn mx-2'></span>{{ __('content.appbar.language.zh-CN') }}</a>
                                 </li>
                             </div>
-                        </div>
+                        </li>
                     </ul>
                 </div>
                 @auth
