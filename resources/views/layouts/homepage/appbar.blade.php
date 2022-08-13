@@ -63,7 +63,7 @@
                                 </ul>
                             </li>
                         @endauth
-                        <li class="dropdown cus-nav-lang-b">
+                        <div class="dropdown cus-nav-lang-b">
                             <div class="dropdown-toggle" type="button" id="dropdownMenu3" data-toggle="dropdown"
                                 aria-haspopup="true"  style="white-space: nowrap;">
                                 <span class="nav-user"><i class="fa fa-globe" style="font-size: 24px;"></i></span>
@@ -77,7 +77,7 @@
                                     <a><span class='fi fi-cn mx-2'></span>{{ __('content.appbar.language.zh-CN') }}</a>
                                 </li>
                             </ul>
-                        </li>
+                        </div>
                     </ul>
                 </div>
                 @auth
