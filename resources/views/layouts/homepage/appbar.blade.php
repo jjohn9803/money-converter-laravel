@@ -31,7 +31,7 @@
                             <a class="nav-link" href="#footer-section">{{ __('content.appbar.contact') }}</a>
                         </li>
                         @auth
-                            <div class="dropdown cus-nav-user-b">
+                            <li class="dropdown cus-nav-user-b">
                                 <div class="dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown"
                                     aria-haspopup="true"  style="white-space: nowrap;">
                                     <span class="nav-user">{{ auth()->user()->name }}</span>
@@ -51,7 +51,7 @@
                                     </li>
                                     <li class="cus-li2"><a id='logout'>{{ __('content.appbar.logout') }}</a></li>
                                 </div>
-                            </div>
+                            </li>
                         @else
                             <nav class="cus-nav nav-item" id='loginbefore'>
                                 <ul class="cus-ul">
