@@ -65,6 +65,7 @@ http://www.tooplate.com/view/2095-level
 </head>
 
 <body>
+    {{ asset('assets/homepage/css/bootstrap.min.css') }}
     <div class="tm-main-content" id="top">
         <div class="tm-top-bar-bg"></div>
         @include('layouts.homepage.appbar')
