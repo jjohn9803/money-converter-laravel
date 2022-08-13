@@ -399,7 +399,7 @@ http://www.tooplate.com/view/2095-level
             <div class="footer-area">
                 <div class="container">
                     <div class="row">
-                        <div class="col-md-4 col-sm-4 col-xs-12">
+                        <div class="my-md-0 my-5 col-md-4 col-sm-4 col-xs-12">
                             <div class="footer-content">
                                 <div class="footer-head">
                                     <div class="footer-logo">
@@ -449,7 +449,7 @@ http://www.tooplate.com/view/2095-level
                             </div>
                         </div>
                         <!-- end single footer -->
-                        <div class="col-md-4 col-sm-4 col-xs-12">
+                        <div class="mb-md-0 mb-5 col-md-4 col-sm-4 col-xs-12">
                             <div class="footer-content">
                                 <div class="footer-head">
                                     <h4>{!! __('content.section-footer.info.title') !!}</h4>
