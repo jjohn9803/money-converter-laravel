@@ -71,7 +71,9 @@ Route::group(['middleware' => 'setLocale'], function () {
     Route::post('/login', [HomeController::class, 'login']);
     Route::post('/email/exist', [HomeController::class, 'exist_email']);
     Route::get('/rt_fxes', [FxController::class, 'getRealtimeFxes']);
+});
 
+Route::group(['middleware' => ['auth', 'setLocale']], function () {
     Route::get('/logout', [LogoutController::class, 'perform']);
 
     Route::get('/get-notification', [HomeController::class, 'getNotification']);
@@ -86,10 +88,6 @@ Route::group(['middleware' => 'setLocale'], function () {
     Route::get('/get-transaction-history-id', [TransactionController::class, 'getSingleTransaction']);
     Route::post('/update-transaction-history', [TransactionController::class, 'updateTransaction']);
     //Route::post('/upload-img', [TransactionController::class, 'saveImg']);
-});
-
-Route::group(['middleware' => ['auth', 'setLocale']], function () {
-    
 });
 
 Route::group(['middleware' => ['verified', 'setLocale']], function () {
