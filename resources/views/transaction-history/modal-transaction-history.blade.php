@@ -513,7 +513,7 @@
         //getTransactionHistory();
     });
     var timer_refresh = setInterval(() => {
-        getTransactionHistory();
+        //getTransactionHistory();
     }, 3000);
 
     var transaction_interval_run = false;
