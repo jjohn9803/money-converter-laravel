@@ -1459,7 +1459,8 @@ span#select2-modalSelectBaseCurrency-container.select2-selection__rendered {
 	background: #2e2d2f;
 	color: #e7e7e8;
 	/* font-weight:unset; */
-	padding: 10px;
+	/* padding: 10px; */
+	border: none;
 }
 
 .cus-nav-lang-li>* {
@@ -1954,7 +1955,8 @@ span#select2-modalSelectBaseCurrency-container.select2-selection__rendered {
 
 	.cus-nav-lang-li>* {
 		white-space: nowrap;
-		padding: 10px 5px;
+		/* padding: 10px 5px; */
+		padding: 10px;
 		font-size: 14px;
 		overflow: hidden;
 		text-overflow: ellipsis;
