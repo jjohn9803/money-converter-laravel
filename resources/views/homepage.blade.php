@@ -1387,7 +1387,7 @@ http://www.tooplate.com/view/2095-level
                 $('#backToTop').addClass("active");
                 /* $('#backToTop').css('bottom', '40px');
                 $('#backToTop').css('opacity', '1'); */
-                $(".cus-nav#navLanguage").removeClass("active");
+                //$(".cus-nav#navLanguage").removeClass("active");
                 $('#navLanguage').css('transition', 'margin 0.33s ease-out,opacity 0.33s ease-out');
                 $('#navLanguage').css('margin', '-15px');
                 $('#navLanguage').css('opacity', '0');

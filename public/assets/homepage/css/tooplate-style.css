@@ -168,7 +168,7 @@ p {
 	text-transform: uppercase;
 	padding: 0;
 	transition: all 0.5s ease;
-	height: 40px;
+	height: auto;
 }
 
 .nav-item:last-child {
@@ -670,8 +670,8 @@ video {
 	}
 
 	.cus-nav-user-b>.dropdown-toggle {
-		padding: 20px 15px !important;
-
+		padding: 15px 15px !important;
+		background: transparent;
 	}
 
 	.cus-nav-user-li {
@@ -733,6 +733,7 @@ video {
 
 	.nav-user {
 		/* color: black !important; */
+		background: transparent;
 		left: 100px !important;
 	}
 
