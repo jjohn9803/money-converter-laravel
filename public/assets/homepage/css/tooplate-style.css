@@ -27,6 +27,11 @@ a:focus {
 	outline: none;
 }
 
+#nav-toggle:focus-visible,
+#nav-toggle:focus {
+	outline: 3px solid rgba(238, 80, 87, 0.5);
+}
+
 .tm-position-relative {
 	position: relative;
 }
