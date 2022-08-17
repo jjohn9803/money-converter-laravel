@@ -705,6 +705,7 @@ video {
 	#notification_li.active {
 		margin: 0px !important;
 		opacity: 0.8;
+		padding: 5px 15px;
 		/* top: -65px;
 		right: 70px; */
 	}
@@ -1677,7 +1678,7 @@ span#select2-modalSelectBaseCurrency-container.select2-selection__rendered {
 
 #notification_li {
 	background-color: transparent;
-	padding: 5px 15px;
+	padding: 0px 15px;
 	border: none;
 	position: relative;
 	-webkit-user-drag: none;
@@ -1689,8 +1690,8 @@ span#select2-modalSelectBaseCurrency-container.select2-selection__rendered {
 }
 
 #notification_li.active {
-	/* padding: 28px 15px; */
-	margin: 0px 20px;
+	padding: 5px 15px;
+	/* margin: 0px 20px; */
 	/* opacity: 0.8; */
 }
 
