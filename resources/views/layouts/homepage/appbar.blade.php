@@ -33,7 +33,7 @@
                         @auth
                             <div class="dropdown cus-nav-user-b">
                                 <div class="dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown"
-                                    aria-haspopup="true"  style="white-space: nowrap;background-color:#2e2d2f;">
+                                    aria-haspopup="true"  style="white-space: nowrap;">
                                     <span class="nav-user">{{ auth()->user()->name }}</span>
                                 </div>
                                 <div class="dropdown-menu cus-nav-user-li" aria-labelledby="dropdownMenu2">
@@ -65,7 +65,7 @@
                         @endauth
                         <div class="dropdown cus-nav-lang-b">
                             <div class="dropdown-toggle" type="button" id="dropdownMenu3" data-toggle="dropdown"
-                                aria-haspopup="true"  style="white-space: nowrap;background-color:#2e2d2f;">
+                                aria-haspopup="true"  style="white-space: nowrap;">
                                 <span class="nav-user"><i class="fa fa-globe" style="font-size: 24px;"></i></span>
                                 <span class="nav-user2">{{ __('content.appbar.language.title') }}</span>
                             </div>

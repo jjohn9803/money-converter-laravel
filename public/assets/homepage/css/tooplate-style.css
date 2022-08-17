@@ -1689,7 +1689,7 @@ span#select2-modalSelectBaseCurrency-container.select2-selection__rendered {
 }
 
 #notification_li.active {
-	padding: 28px 15px;
+	/* padding: 28px 15px; */
 	margin: 0px 20px;
 	/* opacity: 0.8; */
 }
@@ -1728,7 +1728,7 @@ span#select2-modalSelectBaseCurrency-container.select2-selection__rendered {
 
 
 #notificationContainer.active {
-	top: 84px;
+	/* top: 84px; */
 	margin-left: -185px;
 	transition-duration: 0.3s;
 }
