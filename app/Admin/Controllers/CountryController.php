@@ -7,6 +7,7 @@ use Encore\Admin\Controllers\AdminController;
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
 use Encore\Admin\Show;
+use Illuminate\Support\Facades\Http;
 
 class CountryController extends AdminController
 {
@@ -82,13 +83,60 @@ class CountryController extends AdminController
             $footer->disableEditingCheck();
             $footer->disableCreatingCheck();
         });
-        $form->text('name', __('admin.custom.countries.name'))->rules('required');
-        $form->text('alpha_2_code', __('admin.custom.countries.alpha_2_code'))->help("<a href='https://www.iban.com/country-codes' target='_blank'>" . __('admin.custom.countries.form-hint') . "</a>")->rules('required');
+        $getAlpha2CodeWithCountry = self::getAlpha2CodeWithCountry();
+        //dd($getAlpha2CodeWithCountry);
+        if ($getAlpha2CodeWithCountry) {
+            $form->select('name', __('admin.custom.countries.name'))
+                ->options($getAlpha2CodeWithCountry->country)
+                ->rules('required');
+            $form->select('alpha_2_code', __('admin.custom.countries.alpha_2_code'))
+                ->options($getAlpha2CodeWithCountry->iso_alpha_two)
+                ->help("<a href='https://www.iban.com/country-codes' target='_blank'>" . __('admin.custom.countries.form-hint') . "</a>")
+                ->rules('required');
+        } else {
+            $form->text('name', __('admin.custom.countries.name'))->rules('required');
+            $form->text('alpha_2_code', __('admin.custom.countries.alpha_2_code'))->help("<a href='https://www.iban.com/country-codes' target='_blank'>" . __('admin.custom.countries.form-hint') . "</a>")->rules('required');
+        }
 
         $form->saving(function () use ($form) {
             $form->alpha_2_code = strtoupper($form->alpha_2_code);
         });
 
         return $form;
+    }
+
+    function getAlpha2CodeWithCountry()
+    {
+        try {
+            $response = Http::withHeaders(
+                [
+                    'X-RapidAPI-Key' => 'e048c447eemsh6d3d83643dbb2b0p1ed171jsn66126b55cb3f',
+                    'X-RapidAPI-Host' => 'codesofcountry.p.rapidapi.com',
+                ]
+            )->get('https://codesofcountry.p.rapidapi.com/countries');
+            $array_currency = $response['countries'];
+            $result_currency = [];
+            foreach ($array_currency as $key => $value) {
+                $country = '';
+                $iso_alpha_two = '';
+                $currency_code = '';
+                foreach ($value as $key2 => $value2) {
+                    if ($key2 == 'country') {
+                        $country = $value2;
+                    }
+                    if ($key2 == 'iso_alpha_two') {
+                        $iso_alpha_two = $value2;
+                    }
+                    if ($key2 == 'currency_code') {
+                        $currency_code = $value2;
+                    }
+                }
+                $result_currency['iso_alpha_two'][$iso_alpha_two] = $iso_alpha_two . ' (' . $country . ')';
+                $result_currency['country'][$country] = $country;
+            }
+            return json_decode(json_encode($result_currency), FALSE);
+        } catch (\Throwable $th) {
+            return false;
+        }
     }
 }

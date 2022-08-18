@@ -82,7 +82,6 @@ http://www.tooplate.com/view/2095-level
                 </div>
             </div>
         </div>
-
         <div class="tm-section tm-position-relative" id='section-features'>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"
                 class="tm-section-down-arrow">
@@ -1515,6 +1514,109 @@ http://www.tooplate.com/view/2095-level
                 $('#homepage-data1').html(parseInt($home_pages_data1) * percent_home_page);
             }, 100); */
         });
+    </script>
+    <script>
+        $('#prime').click(function(){
+            if($('.fabs').hasClass('show')){
+                $('.fabs').removeClass('show');
+            }else{
+                $('.fabs').addClass('show');
+            };
+        });
+        /* //floating button moveable
+        const fabElement = $('#prime');
+        //fabElement.top = "200px";
+        //const fabElement = document.getElementById("prime");
+        let oldPositionX, oldPositionY;
+
+        const move = (e) => {
+            console.log(e.clientX+","+e.clientY);
+            if (!fabElement.hasClass("fab-active")) {
+                if (e.type === "touchmove") {
+                    fabElement.top = e.clientY + "px";
+                    fabElement.left = e.clientX + "px";
+                } else {
+                    fabElement.animate({ top: e.clientY + "px" }, 0);
+                    fabElement.animate({ left: e.clientX + "px" }, 0);
+                    //fabElement.top = ;
+                    //fabElement.left = e.clientX + "px";
+                }
+            }
+        }; */
+
+        /* const mouseDown = (e) => {
+            console.log("mouse down ");
+            oldPositionY = fabElement.top;
+            oldPositionX = fabElement.left;
+            if (e.type === "mousedown") {
+                //window.addEventListener("mousemove", move);
+                $(window).on("mousemove",move);
+            } else {
+                //window.addEventListener("touchmove", move);
+                $(window).on("touchmove",move);
+            }
+
+            fabElement.transition = "none";
+        };
+
+        $('#prime').on("mousedown",mouseDown); */
+
+        /* const mouseUp = (e) => {
+            console.log("mouse up");
+            if (e.type === "mouseup") {
+                window.removeEventListener("mousemove", move);
+            } else {
+                window.removeEventListener("touchmove", move);
+            }
+            snapToSide(e);
+            fabElement.style.transition = "0.3s ease-in-out left";
+        }; */
+
+        /* const snapToSide = (e) => {
+            const wrapperElement = document.getElementById('top');
+            //const wrapperElement = document.getElementById('main-wrapper');
+            const windowWidth = window.innerWidth;
+            let currPositionX, currPositionY;
+            if (e.type === "touchend") {
+                currPositionX = e.changedTouches[0].clientX;
+                currPositionY = e.changedTouches[0].clientY;
+            } else {
+                currPositionX = e.clientX;
+                currPositionY = e.clientY;
+            }
+            if (currPositionY < 50) {
+                fabElement.style.top = 50 + "px";
+            }
+            if (currPositionY > wrapperElement.clientHeight - 50) {
+                fabElement.style.top = (wrapperElement.clientHeight - 50) + "px";
+            }
+            if (currPositionX < windowWidth / 2) {
+                fabElement.style.left = 30 + "px";
+                fabElement.classList.remove('right');
+                fabElement.classList.add('left');
+            } else {
+                fabElement.style.left = windowWidth - 30 + "px";
+                fabElement.classList.remove('left');
+                fabElement.classList.add('right');
+            }
+        }; */
+
+        /* fabElement.addEventListener("mousedown", mouseDown);
+
+        fabElement.addEventListener("mouseup", mouseUp);
+
+        fabElement.addEventListener("touchstart", mouseDown);
+
+        fabElement.addEventListener("touchend", mouseUp);
+
+        fabElement.addEventListener("click", (e) => {
+            if (
+                oldPositionY === fabElement.style.top &&
+                oldPositionX === fabElement.style.left
+            ) {
+                fabElement.classList.toggle("fab-active");
+            }
+        }); */
     </script>
     @include('layouts/homepage/contacts')
     {{-- @include('layouts/user-reviews-slider') --}}

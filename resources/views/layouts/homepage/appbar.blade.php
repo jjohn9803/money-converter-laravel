@@ -53,10 +53,10 @@
                                 </div>
                             </div>
                         @else
-                            <nav class="cus-nav nav-item" id='loginbefore'>
+                            <nav class="cus-nav nav-item" id='loginbefore' data-toggle="modal" data-target="#loginModal">
                                 <ul class="cus-ul">
                                     <li class="cus-li">
-                                        <a class="cus-a" data-toggle="modal" data-target="#loginModal">
+                                        <a class="cus-a">
                                             <span class="nav-user">{{ __('content.appbar.login') }}</span>
                                         </a>
                                     </li>
