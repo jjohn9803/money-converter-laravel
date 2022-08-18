@@ -32,8 +32,8 @@
                         </li>
                         @auth
                             <div class="dropdown cus-nav-user-b">
-                                <div class="dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown"
-                                    aria-haspopup="true"  style="white-space: nowrap;background: transparent;">
+                                <div class="dropdown-toggle" id="dropdownMenu2" data-toggle="dropdown"
+                                    aria-haspopup="true"  style="white-space: nowrap;">
                                     <span class="nav-user">{{ auth()->user()->name }}</span>
                                 </div>
                                 <div class="dropdown-menu cus-nav-user-li" aria-labelledby="dropdownMenu2">
@@ -64,8 +64,8 @@
                             </nav>
                         @endauth
                         <div class="dropdown cus-nav-lang-b">
-                            <div class="dropdown-toggle" type="button" id="dropdownMenu3" data-toggle="dropdown"
-                                aria-haspopup="true"  style="white-space: nowrap;background: transparent;">
+                            <div class="dropdown-toggle" id="dropdownMenu3" data-toggle="dropdown"
+                                aria-haspopup="true"  style="white-space: nowrap;">
                                 <span class="nav-user"><i class="fa fa-globe" style="font-size: 24px;"></i></span>
                                 <span class="nav-user2">{{ __('content.appbar.language.title') }}</span>
                             </div>
