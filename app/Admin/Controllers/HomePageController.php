@@ -94,10 +94,15 @@ class HomePageController extends AdminController
         $grid->column('value->zh', __('admin.custom.homepage.value.zh-CN')); */
         $grid->column('created_at', __('admin.custom.created_at'));
         $grid->column('updated_at', __('admin.custom.updated_at'));
-        $grid->actions(function ($actions) {
+        $grid->column('')->display(function () {
+            return '<a href="' . url()->current() . '/' . $this->id . '/edit" target="_self"><i class="fa fa-pencil-square-o"></i></a>';
+        });
+        /* $grid->actions(function ($actions) {
             $actions->disableView();
             $actions->disableDelete();
-        });
+            $actions->disableEdit();
+        }); */
+        $grid->disableActions();
         $grid->disableCreateButton();
         return $grid;
     }
@@ -148,7 +153,7 @@ class HomePageController extends AdminController
         if ($model->name == 'Working Hours') {
             //time range
             $form->embeds('value', __('admin.custom.homepage.value.title'), function ($form) {
-                $form->timeRange('start', 'end', __('admin.custom.homepage.value.date-range'))->rules('required');
+                $form->timeRange('start', 'end', __('admin.custom.homepage.value.date-range'))->help(__('admin.custom.homepage.value.date-range-help'))->rules('required');
                 //$form->timeRange('zh', __('admin.custom.homepage.value.zh-CN'))->rules('required');
             });
             $form->saving(function ($form) {
@@ -174,13 +179,13 @@ class HomePageController extends AdminController
                 //$form->timeRange('start', 'end', __('admin.custom.homepage.value.date-range'))->rules('required');
                 //$form->timeRange('zh', __('admin.custom.homepage.value.zh-CN'))->rules('required');
             });
-        }else if (in_array($model->name,['Remittance','Arrival'])) {
+        } else if (in_array($model->name, ['Remittance', 'Arrival'])) {
             //zh en
             $form->embeds('value', __('admin.custom.homepage.value.title'), function ($form) {
                 $form->text('en', __('admin.custom.homepage.value.en'))->rules('required');
                 $form->text('zh', __('admin.custom.homepage.value.zh-CN'))->rules('required');
             });
-        }else if (in_array($model->name,['Tel'])) {
+        } else if (in_array($model->name, ['Tel'])) {
             //zh en
             $form->embeds('value', __('admin.custom.homepage.value.title'), function ($form) {
                 $form->mobile('value', __('admin.custom.homepage.value.tel'))->rules('required');
@@ -189,7 +194,7 @@ class HomePageController extends AdminController
             $form->saving(function ($form) {
                 $form->value = array('value' => preg_replace("/[^0-9.]/", "", $form->value['value']));
             });
-        }else if (in_array($model->name,['Transaction Complete','Money Saved','Hours Time Saved'])) {
+        } else if (in_array($model->name, ['Transaction Complete', 'Money Saved', 'Hours Time Saved'])) {
             //number
             $form->embeds('value', __('admin.custom.homepage.value.title'), function ($form) {
                 $form->text('value', __('admin.custom.homepage.value.value'))->rules('required');

@@ -99,6 +99,7 @@ class CurrencyController extends AdminController
         if ($getCurrencyWithCountry) {
             $form->select('name', __('admin.custom.currencies.name'))
                 ->options($getCurrencyWithCountry)
+                ->help("<a href='https://www.sport-histoire.fr/en/Geography/Currencies_countries_of_the_world.php' target='_blank'>" . __('admin.custom.currencies.form-hint') . "</a>")
                 ->rules('required');
         } else {
             $form->text('name', __('admin.custom.currencies.name'))->help("<a href='https://www.sport-histoire.fr/en/Geography/Currencies_countries_of_the_world.php' target='_blank'>" . __('admin.custom.currencies.form-hint') . "</a>")->rules('required');

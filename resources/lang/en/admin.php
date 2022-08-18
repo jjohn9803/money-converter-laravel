@@ -282,6 +282,7 @@ return [
                 'en' => 'English',
                 'zh-CN' => 'Mandarin',
                 'date-range' => 'WH Range',
+                'date-range-help' => 'The working hours will be defined as 24 hours if it is set to the same time.',
                 'value' => 'Value',
                 'tel' => 'Phone',
             ],

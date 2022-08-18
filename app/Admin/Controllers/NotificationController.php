@@ -45,8 +45,8 @@ class NotificationController extends AdminController
         $grid = new Grid(new Notification());
         $grid->filter(function ($filter) {
             $filter->column(1 / 2, function ($filter) {
-                $filter->like('transasction.user.name', __('admin.custom.notifications.username'));
-                $filter->like('transasction.user.email', __('admin.custom.notifications.email'));
+                $filter->like('user.name', __('admin.custom.notifications.username'));
+                $filter->like('user.email', __('admin.custom.notifications.email'));
             });
             $filter->column(1 / 2, function ($filter) {
                 $filter->like('transasction.ref_no', __('admin.custom.notifications.order_id'));
