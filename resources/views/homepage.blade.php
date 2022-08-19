@@ -355,9 +355,9 @@ http://www.tooplate.com/view/2095-level
                 @endif
                 <a id="prime" class="fab"><i class="fa fa-whatsapp"></i></a>
             </div>
-            <div href="javascript:void(0)" id='backToTop' class="float float2">
+            {{-- <div href="javascript:void(0)" id='backToTop' class="float float2">
                 <i class="fa fa-angle-up my-float"></i>
-            </div>
+            </div> --}}
         </div>
         {{-- {{$realtime_fxes}} --}}
         {{-- <div class="tm-section tm-section-pad tm-bg-img tm-position-relative" id="tm-section-6">

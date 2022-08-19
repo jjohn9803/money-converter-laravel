@@ -17,7 +17,7 @@ body {
 	padding-right: 0px !important;
 }
 
-body.swal2-shown:not(.swal2-no-backdrop):not(.swal2-toast-shown){
+body.swal2-shown:not(.swal2-no-backdrop):not(.swal2-toast-shown) {
 	/* overflow: auto !important; */
 	overflow-y: auto !important;
 }
@@ -2332,18 +2332,17 @@ span#select2-modalSelectBaseCurrency-container.select2-selection__rendered {
 
 .fabs {
 	position: fixed;
-	bottom: 120px;
-	right: -30px;
-	opacity: 0.8;
+	bottom: calc(20px + 3vh);
+	right: calc(10px + 3vw);
 	z-index: 998;
 	color: #FFF;
 	transition: 500ms;
 }
 
-.fabs.show{
+/* .fabs.show{
 	right: 40px;
 	opacity: 1;
-}
+} */
 
 .fab {
 	display: block;
