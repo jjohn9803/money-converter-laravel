@@ -322,7 +322,7 @@
                 'transasction_id'], ref_no, $data[
                 'message_type'], reason), $data['updated_at']);
         });
-        $('[id^="notification_"]').click(function() {
+        $('[id^="notification_"]').click(function(e) {
             $.ajax({
                 type: 'PUT',
                 url: "/update-notification",
@@ -332,8 +332,11 @@
                 },
                 success: function(data) {
                     if (data['redirect'] == true) {
-                        popupwindow('view-receipt/' + data['id'], 'print_popup',
-                            '500', '820');
+                        console.log(e);
+                        e.currentTarget.setAttribute('onClick', window.open('view-receipt/' + data['id'], "_blank"));
+                        e.currentTarget.setAttribute('onClick', '')
+                        /* popupwindow('view-receipt/' + data['id'], 'print_popup',
+                            '500', '820'); */
                     }
                 },
                 error: function(data) {

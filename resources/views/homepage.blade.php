@@ -1339,8 +1339,22 @@ http://www.tooplate.com/view/2095-level
                                 //console.log(data);
                                 if (!readOnly) {
                                     if (data['redirect'] == true) {
-                                        popupwindow('view-receipt/' + data['id'], '_blank',
-                                            '500', '820');
+                                        console.log('redirect');
+                                        e.currentTarget.setAttribute('onClick', window.open('view-receipt/' + data['id'], "_blank"))
+                                        /* var windowReference = window.open();
+
+                                        myService.getUrl().then(function() {
+                                            windowReference.location = 'view-receipt/' + data['id'];
+                                        }); */
+                                        //console.log(e);
+                                        //e.href = 'view-receipt/' + data['id'];
+                                        //e.currentTarget.target = '_blank';
+                                        //e.currentTarget.setAttribute('target', '_blank');
+                                        //e.currentTarget.setAttribute('href', 'view-receipt/' + data['id']);
+                                        /* popupwindow(, '_blank',
+                                            '500', '820'); */
+                                    } else {
+                                        e.preventDefault();
                                     }
                                     //window.location.href = 'view-notification?id=' + data, 'print_popup';
                                 }
@@ -1516,10 +1530,10 @@ http://www.tooplate.com/view/2095-level
         });
     </script>
     <script>
-        $('#prime').click(function(){
-            if($('.fabs').hasClass('show')){
+        $('#prime').click(function() {
+            if ($('.fabs').hasClass('show')) {
                 $('.fabs').removeClass('show');
-            }else{
+            } else {
                 $('.fabs').addClass('show');
             };
         });

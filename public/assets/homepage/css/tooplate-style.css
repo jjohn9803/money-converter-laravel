@@ -1844,6 +1844,7 @@ span#select2-modalSelectBaseCurrency-container.select2-selection__rendered {
 }
 
 .notificationMessageText {
+	display: block;
 	background-color: #2e2d2f;
 	width: 100%;
 	position: relative;
