@@ -22,6 +22,7 @@
             url: "/validate-form",
             data: $("#myform").serialize(),
             success: function(result) {
+                console.log('validate-form');
                 //$('#myform').addAttr('onsubmit','');
                 if (result['error']) {
                     if (result['error']['swal']) {

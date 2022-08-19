@@ -331,7 +331,7 @@ class HomeController extends Controller
                 'error' => $validator->messages(),
             ]);
         }
-        return response()->json([$request], 201);
+        return response()->json([$request], 200);
     }
 
     public function receipt(Request $request)
