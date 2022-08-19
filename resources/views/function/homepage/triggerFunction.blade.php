@@ -77,10 +77,10 @@
                         cancelButtonText: "{!! __('content.modal.exchange.cancel') !!}"
                     }).then((result) => {
                         if (result.isConfirmed) {
-                            $('#myform').attr('onsubmit',
-                                "popupwindow('about:blank','print_popup','500','820')");
+                            /* $('#myform').attr('onsubmit',
+                                "popupwindow('about:blank','print_popup','500','820')"); */
                             $('#myform').submit();
-                            location.reload();
+                            //location.reload();
                             //$("#exampleModal .close").click()
                             /* $("#exampleModal").modal("hide"); */
                         }
