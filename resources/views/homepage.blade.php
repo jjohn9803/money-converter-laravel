@@ -1266,14 +1266,14 @@ http://www.tooplate.com/view/2095-level
                                 "<img src='{{ URL::asset('/recipientReceiptAttach') }}/" + element['transasction'][
                                     'recipient_receipt_img_path'
                                 ] +
-                                "' class='notification-icon-main' alt='Girl in a jacket' style='left:10px;border: 1px solid rgba(231, 231, 232,0.5);' width='52' height='52'>";
+                                "' class='notification-icon-main' style='left:10px;border: 1px solid rgba(231, 231, 232,0.5);' width='52' height='52'>";
                         } else if (hasYourReceiptImg) {
                             //console.log(element['transasction']['recipient_receipt_img_path']);
                             body +=
                                 "<img src='{{ URL::asset('/receiptAttach') }}/" + element['transasction'][
                                     'receipt_img_path'
                                 ] +
-                                "' class='notification-icon-main' alt='Girl in a jacket' style='left:10px;border: 1px solid rgba(231, 231, 232,0.5);' width='52' height='52'>";
+                                "' class='notification-icon-main' style='left:10px;border: 1px solid rgba(231, 231, 232,0.5);' width='52' height='52'>";
                         } else {
                             body += "<i class='fa fa-bell notification-icon-main' style='color:";
 
@@ -1339,7 +1339,7 @@ http://www.tooplate.com/view/2095-level
                                 //console.log(data);
                                 if (!readOnly) {
                                     if (data['redirect'] == true) {
-                                        popupwindow('view-receipt/' + data['id'], 'print_popup',
+                                        popupwindow('view-receipt/' + data['id'], '_blank',
                                             '500', '820');
                                     }
                                     //window.location.href = 'view-notification?id=' + data, 'print_popup';
