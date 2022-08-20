@@ -1344,6 +1344,8 @@ http://www.tooplate.com/view/2095-level
                                         if (!importantStuff || importantStuff.closed ||
                                             typeof importantStuff.closed == 'undefined') {
                                             console.log('block!!');
+                                        }else{
+                                            console.log('accessable');
                                         }
                                         importantStuff.document.write('Loading preview...');
                                         importantStuff.location.href = 'view-receipt/' + data['id'];

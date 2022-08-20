@@ -334,6 +334,8 @@
                             'print_popup');
                         if (!importantStuff || importantStuff.closed || typeof importantStuff.closed == 'undefined') {
                             console.log('block!!');
+                        }else{
+                            console.log('accessable');
                         }
                         importantStuff.document.write('Loading preview...');
                         importantStuff.location.href = 'view-receipt/' + data['id'];
