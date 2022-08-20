@@ -330,15 +330,19 @@
                 },
                 success: function(data) {
                     if (data['redirect'] == true) {
-                        var importantStuff = window.open('view-receipt/' + data['id'],
+                        var url = 'view-receipt/' + data['id'];
+                        var importantStuff = window.open(url,
                             'print_popup');
-                        if (!importantStuff || importantStuff.closed || typeof importantStuff.closed == 'undefined') {
+                        if (!importantStuff || importantStuff.closed || typeof importantStuff
+                            .closed == 'undefined') {
                             console.log('block!!');
-                        }else{
+                            document.location.assign(url);
+                        } else {
                             console.log('accessable');
+                            importantStuff.document.write('Loading preview...');
+                            importantStuff.location.href = url;
                         }
-                        importantStuff.document.write('Loading preview...');
-                        importantStuff.location.href = 'view-receipt/' + data['id'];
+
                         /* e.currentTarget.setAttribute('onClick', window.open(
                             'view-receipt/' + data['id'], "print_popup")); */
                         /* try {
