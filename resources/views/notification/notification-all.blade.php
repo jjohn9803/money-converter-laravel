@@ -7,7 +7,7 @@
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     {{-- <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"> --}}
     <link rel="stylesheet" href="{{ asset('assets/notification/css/bootstrap.min.css') }}"> <!-- Bootstrap style -->
-        <link rel="stylesheet" href="{{ asset('assets/homepage/font-awesome-4.7.0/css/font-awesome.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/homepage/font-awesome-4.7.0/css/font-awesome.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/notification/style.css') }}">
 </head>
 
@@ -330,8 +330,11 @@
                 },
                 success: function(data) {
                     if (data['redirect'] == true) {
-                        e.currentTarget.setAttribute('onClick', window.open(
-                                                    'view-receipt/' + data['id'], "print_popup"));
+                        var importantStuff = window.open('view-receipt/' + data['id'], '_blank');
+                        importantStuff.document.write('Loading preview...');
+                        importantStuff.location.href = 'view-receipt/' + data['id'];
+                        /* e.currentTarget.setAttribute('onClick', window.open(
+                            'view-receipt/' + data['id'], "print_popup")); */
                         /* try {
                             openTab('view-receipt/' + data['id']);
                         } catch (error) {
