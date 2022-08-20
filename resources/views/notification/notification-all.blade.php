@@ -330,7 +330,9 @@
                 },
                 success: function(data) {
                     if (data['redirect'] == true) {
-                        try {
+                        e.currentTarget.setAttribute('onClick', window.open(
+                                                    'view-receipt/' + data['id'], "print_popup"));
+                        /* try {
                             openTab('view-receipt/' + data['id']);
                         } catch (error) {
                             try {
@@ -339,7 +341,7 @@
                             } catch (error) {
                                 document.location.assign('view-receipt/' + data['id']);
                             }
-                        }
+                        } */
                         //console.log(e);
                         //e.currentTarget.setAttribute('onClick', window.open('view-receipt/' + data['id'], "_blank"));
                         //e.currentTarget.setAttribute('onClick', '')

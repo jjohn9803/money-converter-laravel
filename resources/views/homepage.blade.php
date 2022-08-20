@@ -1236,7 +1236,7 @@ http://www.tooplate.com/view/2095-level
                                 var created_at_message = minutes_ago + " minutes ago";
                             }
                         }
-                        var body = "<a href='#'' target='_blank' id='" + element[
+                        var body = "<a href='#'' target='print_popup' id='" + element[
                             'id'] + "' class='notificationMessageText' value = '";
                         if (element['status'] == 1) {
                             body += "0";
@@ -1339,15 +1339,20 @@ http://www.tooplate.com/view/2095-level
                                 //console.log(data);
                                 if (!readOnly) {
                                     if (data['redirect'] == true) {
-                                        try {
+                                        e.currentTarget.setAttribute('onClick', window.open(
+                                                    'view-receipt/' + data['id'], "print_popup"));
+                                        /* try {
                                             openTab('view-receipt/' + data['id']);
                                         } catch (error) {
                                             try {
-                                                e.currentTarget.setAttribute('onClick', window.open('view-receipt/' + data['id'], "_blank"));
+                                                console.log('second method!');
+                                                e.currentTarget.setAttribute('onClick', window.open(
+                                                    'view-receipt/' + data['id'], "_blank"));
                                             } catch (error) {
+                                                console.log('final weapon!');
                                                 document.location.assign('view-receipt/' + data['id']);
                                             }
-                                        }
+                                        } */
                                         //.log('redirect');
                                         //e.currentTarget.setAttribute('onClick', window.open('view-receipt/' + data['id'], "_blank"))
                                         /* var windowReference = window.open();
