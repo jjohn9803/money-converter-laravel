@@ -332,9 +332,19 @@
                 },
                 success: function(data) {
                     if (data['redirect'] == true) {
-                        console.log(e);
-                        e.currentTarget.setAttribute('onClick', window.open('view-receipt/' + data['id'], "_blank"));
-                        e.currentTarget.setAttribute('onClick', '')
+                        try {
+                            openTab('view-receipt/' + data['id']);
+                        } catch (error) {
+                            try {
+                                e.currentTarget.setAttribute('onClick', window.open(
+                                    'view-receipt/' + data['id'], "_blank"));
+                            } catch (error) {
+                                document.location.assign('view-receipt/' + data['id']);
+                            }
+                        }
+                        //console.log(e);
+                        //e.currentTarget.setAttribute('onClick', window.open('view-receipt/' + data['id'], "_blank"));
+                        //e.currentTarget.setAttribute('onClick', '')
                         /* popupwindow('view-receipt/' + data['id'], 'print_popup',
                             '500', '820'); */
                     }
@@ -408,4 +418,16 @@
             'toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no, resizable=no, copyhistory=no, width=' +
             w + ', height=' + h + ', top=' + top + ', left=' + left);
     }
+
+    function openTab(url) {
+        // Create link in memory
+        var a = window.document.createElement("a");
+        a.target = '_blank';
+        a.href = url;
+
+        // Dispatch fake click
+        var e = window.document.createEvent("MouseEvents");
+        e.initMouseEvent("click", true, true, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
+        a.dispatchEvent(e);
+    };
 </script>

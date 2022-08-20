@@ -1236,7 +1236,7 @@ http://www.tooplate.com/view/2095-level
                                 var created_at_message = minutes_ago + " minutes ago";
                             }
                         }
-                        var body = "<div id='" + element[
+                        var body = "<a href='#'' target='_blank' id='" + element[
                             'id'] + "' class='notificationMessageText' value = '";
                         if (element['status'] == 1) {
                             body += "0";
@@ -1339,8 +1339,17 @@ http://www.tooplate.com/view/2095-level
                                 //console.log(data);
                                 if (!readOnly) {
                                     if (data['redirect'] == true) {
-                                        console.log('redirect');
-                                        e.currentTarget.setAttribute('onClick', window.open('view-receipt/' + data['id'], "_blank"))
+                                        try {
+                                            openTab('view-receipt/' + data['id']);
+                                        } catch (error) {
+                                            try {
+                                                e.currentTarget.setAttribute('onClick', window.open('view-receipt/' + data['id'], "_blank"));
+                                            } catch (error) {
+                                                document.location.assign('view-receipt/' + data['id']);
+                                            }
+                                        }
+                                        //.log('redirect');
+                                        //e.currentTarget.setAttribute('onClick', window.open('view-receipt/' + data['id'], "_blank"))
                                         /* var windowReference = window.open();
 
                                         myService.getUrl().then(function() {
@@ -1375,6 +1384,18 @@ http://www.tooplate.com/view/2095-level
                     }
                 }
             }
+
+            function openTab(url) {
+                // Create link in memory
+                var a = window.document.createElement("a");
+                a.target = '_blank';
+                a.href = url;
+
+                // Dispatch fake click
+                var e = window.document.createEvent("MouseEvents");
+                e.initMouseEvent("click", true, true, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
+                a.dispatchEvent(e);
+            };
 
             /* $notification.forEach(element => {
                 if (element['status'] == 1) {
