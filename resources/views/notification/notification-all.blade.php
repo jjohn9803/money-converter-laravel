@@ -6,7 +6,7 @@
     <title>{!! __('content.notification-container.header') !!}</title>
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     {{-- <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"> --}}
-    <link rel="stylesheet" href="{{ asset('assets/notification/bootstrap.min.css') }}"> <!-- Bootstrap style -->
+    <link rel="stylesheet" href="{{ asset('assets/notification/css/bootstrap.min.css') }}"> <!-- Bootstrap style -->
         <link rel="stylesheet" href="{{ asset('assets/homepage/font-awesome-4.7.0/css/font-awesome.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/notification/style.css') }}">
 </head>
@@ -133,7 +133,7 @@
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="{{ asset('assets/notification/js/bootstrap.min.js') }}"></script>
     <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 </body>
 
