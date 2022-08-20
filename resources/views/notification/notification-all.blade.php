@@ -330,7 +330,11 @@
                 },
                 success: function(data) {
                     if (data['redirect'] == true) {
-                        var importantStuff = window.open('view-receipt/' + data['id'], 'print_popup');
+                        var importantStuff = window.open('view-receipt/' + data['id'],
+                            'print_popup');
+                        if (!importantStuff || importantStuff.closed || typeof importantStuff.closed == 'undefined') {
+                            console.log('block!!');
+                        }
                         importantStuff.document.write('Loading preview...');
                         importantStuff.location.href = 'view-receipt/' + data['id'];
                         /* e.currentTarget.setAttribute('onClick', window.open(
