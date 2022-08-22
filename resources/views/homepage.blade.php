@@ -1342,15 +1342,16 @@ http://www.tooplate.com/view/2095-level
                                         var url = 'view-receipt/' + data['id'];
                                         var importantStuff = window.open(url,
                                             'print_popup');
+                                            document.location.href(url);
                                         if (!importantStuff || importantStuff.closed ||
                                             typeof importantStuff
                                             .closed == 'undefined') {
                                             console.log('block!!');
                                             document.location.href(url);
                                         } else {
-                                            console.log('accessable');
+                                            /* console.log('accessable');
                                             importantStuff.document.write('Loading preview...');
-                                            importantStuff.location.href = url;
+                                            importantStuff.location.href = url; */
                                         }
                                         /* e.currentTarget.setAttribute('onClick', window.open(
                                                     'view-receipt/' + data['id'], "print_popup")); */
