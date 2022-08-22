@@ -102,63 +102,63 @@ body {
 }
 
 .timer-container {
-    position: relative;
-    top: 17.5px;
-    background-color: rgb(218, 218, 218, 0.25);
-    height: 75px;
-    width: auto;
-    width: 150px;
+    position: relative !important;
+    top: 17.5px !important;
+    background-color: rgb(218, 218, 218, 0.25) !important;
+    height: 75px !important;
+    width: auto !important;
+    width: 150px !important;
 }
 
 .timer-title {
-    position: absolute;
-    margin-left: 50%;
-    transform: translate(-50%, 0);
-    font-weight: 600;
+    position: absolute !important;
+    margin-left: 50% !important;
+    transform: translate(-50%, 0) !important;
+    font-weight: 600 !important;
     color: rgb(0, 0, 0, 0.66) !important;
-    width: max-content;
+    width: max-content !important;
 }
 
 .timer-minutes-number {
-    position: absolute;
-    left: 15%;
-    top: 20px;
+    position: absolute !important;
+    left: 15% !important;
+    top: 20px !important;
     font-size: 24px !important;
 }
 
 .timer-minutes-text {
-    position: absolute;
-    left: 7.5px;
-    top: 50px;
+    position: absolute !important;
+    left: 7.5px !important;
+    top: 50px !important;
     color: grey !important;
-    opacity: 0.66;
-    font-size: 14px;
+    opacity: 0.66 !important;
+    font-size: 14px !important;
 }
 
 .timer-symbol {
-    position: absolute;
-    transform: translate(-50%, 0);
-    left: 50%;
-    top: 25px;
+    position: absolute !important;
+    transform: translate(-50%, 0) !important;
+    left: 50% !important;
+    top: 25px !important;
     color: grey !important;
-    opacity: 0.66;
+    opacity: 0.66 !important;
     font-size: 14px !important;
 }
 
 .timer-seconds-number {
-    position: absolute;
-    right: 15%;
-    top: 20px;
+    position: absolute !important;
+    right: 15% !important;
+    top: 20px !important;
     font-size: 24px !important;
 }
 
 .timer-seconds-text {
-    position: absolute;
-    right: 7.5px;
-    top: 50px;
+    position: absolute !important;
+    right: 7.5px !important;
+    top: 50px !important;
     color: grey !important;
-    opacity: 0.66;
-    font-size: 14px;
+    opacity: 0.66 !important;
+    font-size: 14px !important;
 }
 
 details {
