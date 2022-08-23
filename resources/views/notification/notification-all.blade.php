@@ -336,7 +336,7 @@
                         if (!importantStuff || importantStuff.closed || typeof importantStuff
                             .closed == 'undefined') {
                             console.log('block!!');
-                            document.location.href(url);
+                            document.location.href = url;
                         } else {
                             console.log('accessable');
                             importantStuff.document.write('Loading preview...');
