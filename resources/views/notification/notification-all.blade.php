@@ -331,14 +331,15 @@
                 success: function(data) {
                     if (data['redirect'] == true) {
                         var url = 'view-receipt/' + data['id'];
-                        var form = document.createElement("form");
+                        importantStuff.location.href = url;
+                        /* var form = document.createElement("form");
                         form.id = "view-receipt-once";
                         form.method = "GET";
                         form.action = url;
                         form.target = "print_popup";
                         document.body.appendChild(form);
                         form.submit();
-                        document.getElementById("view-receipt-once").remove();
+                        document.getElementById("view-receipt-once").remove(); */
                         /* try {
                             var importantStuff = window.open(url,
                                 'print_popup');
