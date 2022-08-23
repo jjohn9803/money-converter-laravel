@@ -333,9 +333,11 @@
                         var url = 'view-receipt/' + data['id'];
                         var importantStuff = window.open(url,
                             'print_popup');
-                        if (!importantStuff || importantStuff.closed ||
-                            typeof importantStuff
-                            .closed == 'undefined') {
+                        try {
+                            importantStuff.document.write('Loading preview...');
+                            importantStuff.location.href = url;
+                            console.log('accessable');
+                        } catch (error) {
                             console.log('block!!');
                             var form = document.createElement("form");
                             form.id = "view-receipt-once";
@@ -345,11 +347,16 @@
                             document.body.appendChild(form);
                             form.submit();
                             document.getElementById("view-receipt-once").remove();
+                        }
+                        /* if (!importantStuff || importantStuff.closed ||
+                            typeof importantStuff
+                            .closed == 'undefined') {
+
                         } else {
                             console.log('accessable');
                             importantStuff.document.write('Loading preview...');
                             importantStuff.location.href = url;
-                        }
+                        } */
                         /* e.currentTarget.setAttribute('onClick', window.open(
                             'view-receipt/' + data['id'], "print_popup")); */
                         /* try {
