@@ -625,6 +625,7 @@
             "</p>" +
             "<p class='text-muted'>{!! __('content.receipt.status') !!}: ";
         $body += getStatusText($status);
+        console.log(getStatusText($status));
         $body += "</p><p class='text-muted'><small>" + $time + "</small></p></div></div></div>";
         $('#notification-content').append($body);
 

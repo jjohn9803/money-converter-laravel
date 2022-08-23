@@ -988,6 +988,7 @@ http://www.tooplate.com/view/2095-level
     </script>
     @auth
         <script>
+            var app_timezone = "{!! env('APP_TIMEZONE') !!}";
             $notification_list = [];
             $notification_unread_count = 0;
             retrieveNotification();
@@ -1200,43 +1201,44 @@ http://www.tooplate.com/view/2095-level
                         if (element['status'] == 1) {
                             $notification_unread_count += 1;
                         }
-                        if (moment().diff(moment(element['created_at']), 'years') > 0) {
-                            var years_ago = moment().diff(moment(element['created_at']), 'years');
+                        var moment_now = moment.tz(app_timezone);
+                        if (moment_now.diff(moment(element['created_at']), 'years') > 0) {
+                            var years_ago = moment_now.diff(moment(element['created_at']), 'years');
                             if (years_ago <= 1) {
                                 var created_at_message = years_ago + " year ago";
                             } else {
                                 var created_at_message = years_ago + " years ago";
                             }
-                        } else if (moment().diff(moment(element['created_at']), 'months') > 0) {
-                            var months_ago = moment().diff(moment(element['created_at']), 'months');
+                        } else if (moment_now.diff(moment(element['created_at']), 'months') > 0) {
+                            var months_ago = moment_now.diff(moment(element['created_at']), 'months');
                             if (months_ago <= 1) {
                                 var created_at_message = months_ago + " month ago";
                             } else {
                                 var created_at_message = months_ago + " months ago";
                             }
-                        } else if (moment().diff(moment(element['created_at']), 'weeks') > 0) {
-                            var weeks_ago = moment().diff(moment(element['created_at']), 'weeks');
+                        } else if (moment_now.diff(moment(element['created_at']), 'weeks') > 0) {
+                            var weeks_ago = moment_now.diff(moment(element['created_at']), 'weeks');
                             if (weeks_ago <= 1) {
                                 var created_at_message = weeks_ago + " week ago";
                             } else {
                                 var created_at_message = weeks_ago + " weeks ago";
                             }
-                        } else if (moment().diff(moment(element['created_at']), 'days') > 0) {
-                            var days_ago = moment().diff(moment(element['created_at']), 'days');
+                        } else if (moment_now.diff(moment(element['created_at']), 'days') > 0) {
+                            var days_ago = moment_now.diff(moment(element['created_at']), 'days');
                             if (days_ago <= 1) {
                                 var created_at_message = days_ago + " day ago";
                             } else {
                                 var created_at_message = days_ago + " days ago";
                             }
-                        } else if (moment().diff(moment(element['created_at']), 'hours') > 0) {
-                            var hours_ago = moment().diff(moment(element['created_at']), 'hours');
+                        } else if (moment_now.diff(moment(element['created_at']), 'hours') > 0) {
+                            var hours_ago = moment_now.diff(moment(element['created_at']), 'hours');
                             if (hours_ago <= 1) {
                                 var created_at_message = hours_ago + " hour ago";
                             } else {
                                 var created_at_message = hours_ago + " hours ago";
                             }
                         } else {
-                            var minutes_ago = moment().diff(moment(element['created_at']), 'minutes');
+                            var minutes_ago = moment_now.diff(moment(element['created_at']), 'minutes');
                             if (minutes_ago <= 1) {
                                 var created_at_message = minutes_ago + " minute ago";
                             } else {
