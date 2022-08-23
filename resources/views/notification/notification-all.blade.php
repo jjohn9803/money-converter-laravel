@@ -327,8 +327,6 @@
     }
 
     function newTab($id) {
-        alert('wow');
-        return;
         $.ajax({
             type: 'PUT',
             url: "/update-notification",
@@ -343,7 +341,9 @@
                     $('#form_new_tab_' + $id).attr('action', url);
                     $('#form_new_tab_' + $id).attr('method', "GET");
                     $('#form_new_tab_' + $id).attr('target', "print_popup");
+                    alert('wow');
                     $("#form_new_tab_" + $id).submit();
+                    alert('wow2');
                     $("#form_new_tab_" + $id).removeAttr("action");
                     $("#form_new_tab_" + $id).removeAttr("method");
                     $("#form_new_tab_" + $id).removeAttr("target");
