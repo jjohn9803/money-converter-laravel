@@ -44,7 +44,6 @@
         </nav>
     </header> --}}
     <section class="section-50">
-        <a href="http://www.facebook.com" target="_blank">faceook</a>
         <div class="container">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
@@ -248,9 +247,10 @@
                         $notification_temp.push(value);
                     });
                 });
-                if (!compareArrays($notification, $notification_temp)) {
+                if (!compareArrays(arrayWithSpecificKey($notification, ['updated_at']),
+                        arrayWithSpecificKey($notification_temp, ['updated_at']))) {
                     $notification = $notification_temp;
-                    //console.log('something change?');
+                    console.log('something change?');
                     refreshNotificationList();
                 }
 
@@ -306,6 +306,21 @@
         return false;
     });
 
+    function arrayWithSpecificKey(arr, keys) {
+        var new_arr = [];
+        for (let i = 0; i < arr.length; i++) {
+            var arr_array = Object.entries(arr[i]);
+            var new_arr_array = [];
+            for (let j = 0; j < arr_array.length; j++) {
+                if (keys.includes(arr_array[j][0])) {
+                    new_arr_array[arr_array[j][0]] = arr_array[j][1];
+                }
+            }
+            new_arr[i] = new_arr_array;
+        }
+        return new_arr;
+    }
+
     function refreshNotificationList() {
         $('#notification-content').html('');
         $notification.forEach(function($data, $key) {
@@ -317,102 +332,43 @@
             if ($data['reason']) {
                 reason = $data['reason'];
             }
-            newNotification($data['id'], $data['status'], getNotificationMessageFromType($data[
-                'transasction_id'], ref_no, $data[
-                'message_type'], reason), $data['updated_at']);
+            if ($data['crypt_id']) {
+                newNotification($data['id'], $data['status'], getNotificationMessageFromType($data[
+                    'transasction_id'], ref_no, $data[
+                    'message_type'], reason), $data['updated_at'], $data['crypt_id']);
+            } else {
+                newNotification($data['id'], $data['status'], getNotificationMessageFromType($data[
+                    'transasction_id'], ref_no, $data[
+                    'message_type'], reason), $data['updated_at'], -1);
+            }
         });
         $('[id^="notification_"]').click(function(e) {
-
+            const id = e.currentTarget.id.split('_')[1];
+            $.ajax({
+                type: 'PUT',
+                url: "/update-notification",
+                data: {
+                    "_token": "{{ csrf_token() }}",
+                    id: id,
+                },
+                success: function(data) {},
+                error: function(data) {
+                    console.log(data);
+                }
+            });
+            getNotification();
         });
         filterColumnList();
     }
 
-    function newTab($id) {
-        $.ajax({
-            type: 'PUT',
-            url: "/update-notification",
-            data: {
-                "_token": "{{ csrf_token() }}",
-                id: $id,
-            },
-            success: function(data) {
-                if (data['redirect'] == true) {
-                    var url = 'view-receipt/' + data['id'];
-                    //$id = e.currentTarget.id.split('_')[1];
-                    $('#form_new_tab_' + $id).attr('action', url);
-                    $('#form_new_tab_' + $id).attr('method', "GET");
-                    $('#form_new_tab_' + $id).attr('target', "print_popup");
-                    alert('wow');
-                    $("#form_new_tab_" + $id).submit();
-                    alert('wow2');
-                    $("#form_new_tab_" + $id).removeAttr("action");
-                    $("#form_new_tab_" + $id).removeAttr("method");
-                    $("#form_new_tab_" + $id).removeAttr("target");
-                    /* var url = 'view-receipt/' + data['id'];
-                    //document.location.href = url;
-                    var form = document.createElement("form");
-                    form.id = "view-receipt-once";
-                    form.method = "GET";
-                    form.action = url;
-                    form.target = "print_popup";
-                    document.body.appendChild(form);
-                    form.submit();
-                    document.getElementById("view-receipt-once").remove(); */
-                    /* try {
-                        var importantStuff = window.open(url,
-                            'print_popup');
-                        importantStuff.document.write('Loading preview...');
-                        importantStuff.location.href = url;
-                        console.log('accessable');
-                    } catch (error) {
-                        console.log('block!!');
-                        var form = document.createElement("form");
-                        form.id = "view-receipt-once";
-                        form.method = "GET";
-                        form.action = 'view-receipt/' + data['id'];
-                        form.target = "print_popup";
-                        document.body.appendChild(form);
-                        form.submit();
-                        document.getElementById("view-receipt-once").remove();
-                    } */
-                    /* if (!importantStuff || importantStuff.closed ||
-                        typeof importantStuff
-                        .closed == 'undefined') {
-
-                    } else {
-                        console.log('accessable');
-                        importantStuff.document.write('Loading preview...');
-                        importantStuff.location.href = url;
-                    } */
-                    /* e.currentTarget.setAttribute('onClick', window.open(
-                        'view-receipt/' + data['id'], "print_popup")); */
-                    /* try {
-                        openTab('view-receipt/' + data['id']);
-                    } catch (error) {
-                        try {
-                            e.currentTarget.setAttribute('onClick', window.open(
-                                'view-receipt/' + data['id'], "_blank"));
-                        } catch (error) {
-                            document.location.assign('view-receipt/' + data['id']);
-                        }
-                    } */
-                    //console.log(e);
-                    //e.currentTarget.setAttribute('onClick', window.open('view-receipt/' + data['id'], "_blank"));
-                    //e.currentTarget.setAttribute('onClick', '')
-                    /* popupwindow('view-receipt/' + data['id'], 'print_popup',
-                        '500', '820'); */
-                }
-            },
-            error: function(data) {
-                console.log(data);
-            }
-        });
-        getNotification();
-    }
-
-    function newNotification($id, $status, $message, $time) {
-        $body = "<form id='form_new_tab_" + $id + "'><div onClick='newTab(" + $id + ");' id='notification_" + $id +
-            "' class='notification-list";
+    function newNotification($id, $status, $message, $time, $crypt_id) {
+        if ($crypt_id != -1) {
+            $body = "<a id='notification_" + $id +
+                "' target='_blank' href='view-receipt/" + $crypt_id + "' class='notification-list";
+        } else {
+            $body = "<a id='notification_" + $id +
+                "' class='notification-list";
+        }
         if ($status == 1) {
             $body += " notification-list--unread";
         }
@@ -428,7 +384,7 @@
             "<div class='notification-list_detail'>" +
             "<p>" + $message + "</p>" +
             "<p class='text-muted'><small>" + $time + "</small></p>" +
-            "</div></div></div></form>";
+            "</div></div></a>";
         /* $body += "<input type='checkbox'>"; */
         $('#notification-content').append($body);
     }

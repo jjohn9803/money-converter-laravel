@@ -967,10 +967,16 @@ http://www.tooplate.com/view/2095-level
             });
 
             //Popup on click
-            $("#notificationContainer").click(function() {
+            $("#notificationTitle").click(function(e) {
+                console.log(e);
+                console.log(e.target)
                 return false;
             });
-
+            $("#notificationFooter").click(function(e) {
+                console.log(e);
+                console.log(e.target)
+                return false;
+            });
         });
 
         function getLocale() {
@@ -1236,7 +1242,11 @@ http://www.tooplate.com/view/2095-level
                                 var created_at_message = minutes_ago + " minutes ago";
                             }
                         }
-                        var body = "<a href='#'' target='print_popup' id='" + element[
+                        var body = "<a ";
+                        if (element['crypt_id']) {
+                            body += "href='view-receipt/" + element['crypt_id'] + "' target='_blank' ";
+                        }
+                        body += "id='" + element[
                             'id'] + "' class='notificationMessageText' value = '";
                         if (element['status'] == 1) {
                             body += "0";
@@ -1311,7 +1321,7 @@ http://www.tooplate.com/view/2095-level
                         if (element['status'] == 1) {
                             body += "<i class='fa fa-circle notification-icon-unread'></i>";
                         }
-                        body += "</div>";
+                        body += "</a>";
                         $new_body += body;
                     });
                     $('#notificationsBody').html($new_body);
@@ -1337,7 +1347,7 @@ http://www.tooplate.com/view/2095-level
                             },
                             success: function(data) {
                                 //console.log(data);
-                                if (!readOnly) {
+                                /* if (!readOnly) {
                                     if (data['redirect'] == true) {
                                         var url = 'view-receipt/' + data['id'];
                                         try {
@@ -1357,34 +1367,6 @@ http://www.tooplate.com/view/2095-level
                                             form.submit();
                                             document.getElementById("view-receipt-once").remove();
                                         }
-                                        /* e.currentTarget.setAttribute('onClick', window.open(
-                                                    'view-receipt/' + data['id'], "print_popup")); */
-                                        /* try {
-                                            openTab('view-receipt/' + data['id']);
-                                        } catch (error) {
-                                            try {
-                                                console.log('second method!');
-                                                e.currentTarget.setAttribute('onClick', window.open(
-                                                    'view-receipt/' + data['id'], "_blank"));
-                                            } catch (error) {
-                                                console.log('final weapon!');
-                                                document.location.assign('view-receipt/' + data['id']);
-                                            }
-                                        } */
-                                        //.log('redirect');
-                                        //e.currentTarget.setAttribute('onClick', window.open('view-receipt/' + data['id'], "_blank"))
-                                        /* var windowReference = window.open();
-
-                                        myService.getUrl().then(function() {
-                                            windowReference.location = 'view-receipt/' + data['id'];
-                                        }); */
-                                        //console.log(e);
-                                        //e.href = 'view-receipt/' + data['id'];
-                                        //e.currentTarget.target = '_blank';
-                                        //e.currentTarget.setAttribute('target', '_blank');
-                                        //e.currentTarget.setAttribute('href', 'view-receipt/' + data['id']);
-                                        /* popupwindow(, '_blank',
-                                            '500', '820'); */
                                     } else {
                                         e.preventDefault();
                                     }
@@ -1392,7 +1374,7 @@ http://www.tooplate.com/view/2095-level
                                 }
                                 //popupwindow('view-notification?id='+data,'print_popup','500','820');
                                 //popupwindow('view-receipt/'+data,'print_popup','500','820');
-                                retrieveNotification();
+                                retrieveNotification(); */
                             },
                             error: function(data) {
                                 e.currentTarget.setAttribute('value', 0);

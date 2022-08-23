@@ -56,10 +56,19 @@ class CountryController extends Controller
 
     public function index()
     {
+        $notification = Notification::with(['transasction'])
+            //->join('user', 'user.id', 'notifications.user_id')
+            ->with(['reason'])
+            ->where('notifications.user_id', '=', Auth::user()->id);
+        return $notification->get()->map(function($object){
+            $object['crypt_id'] = Crypt::encrypt($object->id);
+            return $object;
+        });
+        return $notification->get();
         return Notification::with(['transasction'])
-                //->join('user', 'user.id', 'notifications.user_id')
-                ->with(['reason'])
-                ->where('notifications.user_id', '=', Auth::user()->id);
+            //->join('user', 'user.id', 'notifications.user_id')
+            ->with(['reason'])
+            ->where('notifications.user_id', '=', Auth::user()->id);
         $v = \Faker\Factory::create()->unixTime($max = 'now');
         $re = 'hey';
         while (Transaction::where('ref_no', '=', $v)->exists()) {

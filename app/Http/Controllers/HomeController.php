@@ -205,7 +205,12 @@ class HomeController extends Controller
             } else {
                 $notification = $notification->orderBy('created_at', 'desc');
             }
-            $notification = $notification->get();
+            $notification = $notification->get()->map(function ($object) {
+                if ($object->transasction_id != -1) {
+                    $object['crypt_id'] = Crypt::encrypt($object->transasction_id);
+                }
+                return $object;
+            });
             if ($notification != null) {
                 return response()->json(['notification' => $notification]);
             }
