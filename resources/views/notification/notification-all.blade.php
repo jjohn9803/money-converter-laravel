@@ -331,7 +331,7 @@
                 success: function(data) {
                     if (data['redirect'] == true) {
                         var url = 'view-receipt/' + data['id'];
-                        importantStuff.location.href = url;
+                        document.location.href = url;
                         /* var form = document.createElement("form");
                         form.id = "view-receipt-once";
                         form.method = "GET";
