@@ -57,7 +57,19 @@ return [
     'notification-container' => [
         'header' => 'Notifications',
         'read-all' => 'Read All',
-        'see-all' => 'See All'
+        'see-all' => 'See All',
+        'year-ago'=>':v year ago',
+        'years-ago'=>':v years ago',
+        'month-ago'=>':v month ago',
+        'months-ago'=>':v months ago',
+        'week-ago'=>':v week ago',
+        'weeks-ago'=>':v weeks ago',
+        'day-ago'=>':v day ago',
+        'days-ago'=>':v days ago',
+        'hour-ago'=>':v hour ago',
+        'hours-ago'=>':v hours ago',
+        'minute-ago'=>':v minute ago',
+        'minutes-ago'=>':v minutes ago',
     ],
     'exchange' => [
         'base-hint' => "You send (:from_min_amt ~ :from_max_amt :from_curr_name)",
@@ -267,7 +279,8 @@ return [
     ],
     'transaction' => [
         'success' => 'Operation successfully!',
-        'danger-image' => 'The uploaded image might has something wrong. Please retry again later.'
+        'danger-image' => 'The uploaded image might has something wrong. Please retry again later.',
+        'timezone'=>':datetime (UTC+08:00)',
     ],
     'notification-all' => [
         'search' => 'Search..',
@@ -277,6 +290,7 @@ return [
         'unread' => 'Unread',
         'read' => 'Read',
         'read-all' => 'Read All',
+        'timezone'=>':datetime (UTC+08:00)',
     ],
     'receipt' => [
         'countdown-timer' => 'Countdown Timer',

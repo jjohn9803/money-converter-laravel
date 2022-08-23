@@ -626,7 +626,7 @@
             "<p class='text-muted'>{!! __('content.receipt.status') !!}: ";
         $body += getStatusText($status);
         console.log(getStatusText($status));
-        $body += "</p><p class='text-muted'><small>" + $time + "</small></p></div></div></div>";
+        $body += "</p><p class='text-muted'><small>{!! __('content.transaction.timezone', ['datetime' => '"+$time+"']) !!}</small></p></div></div></div>";
         $('#notification-content').append($body);
 
         $('#transaction_history_' + $id).click(function() {
@@ -648,8 +648,10 @@
             $('#modal_fx_rate').html($data['fx_rate']);
             $('#modal_to_curr').html($data['to_amount']);
             $('#modal_to_curr2').html($data['to_curr_name']);
-            $('#modal_created_at').html($data['created_at']);
-            $('#modal_updated_at').html($data['updated_at']);
+            const created_at = $data['created_at'];
+            const updated_at = $data['updated_at'];
+            $('#modal_created_at').html("{!! __('content.transaction.timezone', ['datetime' => '"+created_at+"']) !!}");
+            $('#modal_updated_at').html("{!! __('content.transaction.timezone', ['datetime' => '"+updated_at+"']) !!}");
 
             if ($data['receipt_img_path'] != null) {
                 $('#btnViewMyAttach').css('display', 'block');

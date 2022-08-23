@@ -57,7 +57,19 @@ return [
     'notification-container' => [
         'header' => '通知',
         'read-all' => '全部阅读',
-        'see-all' => '全部查看'
+        'see-all' => '全部查看',
+        'year-ago'=>':v年前',
+        'years-ago'=>':v年前',
+        'month-ago'=>':v month个月前',
+        'months-ago'=>':v months个月前',
+        'week-ago'=>':v周前',
+        'weeks-ago'=>':v周前',
+        'day-ago'=>':v天前',
+        'days-ago'=>':v天前',
+        'hour-ago'=>':v小时前',
+        'hours-ago'=>':v小时前',
+        'minute-ago'=>':v分钟前',
+        'minutes-ago'=>':v分钟前',
     ],
     'exchange' => [
         'base-hint' => "你发送 (:from_min_amt ~ :from_max_amt :from_curr_name)",
@@ -267,7 +279,8 @@ return [
     ],
     'transaction' => [
         'success' => '操作成功!',
-        'danger-image' => '上传的图片可能有问题。请稍后再试。'
+        'danger-image' => '上传的图片可能有问题。请稍后再试。',
+        'timezone'=>':datetime (UTC+08:00)',
     ],
     'notification-all' => [
         'search' => '搜索..',
@@ -277,6 +290,7 @@ return [
         'unread' => '未读',
         'read' => '已读',
         'read-all' => '全部阅读',
+        'timezone'=>':datetime (UTC+08:00)',
     ],
     'receipt' => [
         'countdown-timer' => '倒数计时器',

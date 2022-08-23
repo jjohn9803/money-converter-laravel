@@ -383,7 +383,7 @@
         $body += "</div>" +
             "<div class='notification-list_detail'>" +
             "<p>" + $message + "</p>" +
-            "<p class='text-muted'><small>" + $time + "</small></p>" +
+            "<p class='text-muted'><small>{!! __('content.notification-all.timezone', ['datetime' => '"+$time+"']) !!}</small></p>" +
             "</div></div></a>";
         /* $body += "<input type='checkbox'>"; */
         $('#notification-content').append($body);

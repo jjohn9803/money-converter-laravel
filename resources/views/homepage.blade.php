@@ -1206,44 +1206,44 @@ http://www.tooplate.com/view/2095-level
                         if (moment_now.diff(moment_created_at, 'years') > 0) {
                             var years_ago = moment_now.diff(moment_created_at, 'years');
                             if (years_ago <= 1) {
-                                var created_at_message = years_ago + " year ago";
+                                var created_at_message = "{!! __('content.notification-container.year-ago', ['v' => '"+years_ago+"']) !!}";
                             } else {
-                                var created_at_message = years_ago + " years ago";
+                                var created_at_message = "{!! __('content.notification-container.years-ago', ['v' => '"+years_ago+"']) !!}";
                             }
                         } else if (moment_now.diff(moment_created_at, 'months') > 0) {
                             var months_ago = moment_now.diff(moment_created_at, 'months');
                             if (months_ago <= 1) {
-                                var created_at_message = months_ago + " month ago";
+                                var created_at_message = "{!! __('content.notification-container.month-ago', ['v' => '"+months_ago+"']) !!}";
                             } else {
-                                var created_at_message = months_ago + " months ago";
+                                var created_at_message = "{!! __('content.notification-container.months-ago', ['v' => '"+months_ago+"']) !!}";
                             }
                         } else if (moment_now.diff(moment_created_at, 'weeks') > 0) {
                             var weeks_ago = moment_now.diff(moment_created_at, 'weeks');
                             if (weeks_ago <= 1) {
-                                var created_at_message = weeks_ago + " week ago";
+                                var created_at_message = "{!! __('content.notification-container.week-ago', ['v' => '"+weeks_ago+"']) !!}";
                             } else {
-                                var created_at_message = weeks_ago + " weeks ago";
+                                var created_at_message = "{!! __('content.notification-container.weeks-ago', ['v' => '"+weeks_ago+"']) !!}";
                             }
                         } else if (moment_now.diff(moment_created_at, 'days') > 0) {
                             var days_ago = moment_now.diff(moment_created_at, 'days');
                             if (days_ago <= 1) {
-                                var created_at_message = days_ago + " day ago";
+                                var created_at_message = "{!! __('content.notification-container.day-ago', ['v' => '"+days_ago+"']) !!}";
                             } else {
-                                var created_at_message = days_ago + " days ago";
+                                var created_at_message = "{!! __('content.notification-container.days-ago', ['v' => '"+days_ago+"']) !!}";
                             }//1
                         } else if (moment_now.diff(moment_created_at, 'hours') > 0) {
                             var hours_ago = moment_now.diff(moment_created_at, 'hours');
                             if (hours_ago <= 1) {
-                                var created_at_message = hours_ago + " hour ago";
+                                var created_at_message = "{!! __('content.notification-container.hour-ago', ['v' => '"+hours_ago+"']) !!}";
                             } else {
-                                var created_at_message = hours_ago + " hours ago";
+                                var created_at_message = "{!! __('content.notification-container.hours-ago', ['v' => '"+hours_ago+"']) !!}";
                             }
                         } else {
                             var minutes_ago = moment_now.diff(moment_created_at, 'minutes');
                             if (minutes_ago <= 1) {
-                                var created_at_message = minutes_ago + " minute ago";
+                                var created_at_message = "{!! __('content.notification-container.minute-ago', ['v' => '"+minutes_ago+"']) !!}";
                             } else {
-                                var created_at_message = minutes_ago + " minutes ago";
+                                var created_at_message = "{!! __('content.notification-container.minutes-ago', ['v' => '"+minutes_ago+"']) !!}";
                             }
                         }
                         var body = "<a ";
