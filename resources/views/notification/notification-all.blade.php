@@ -327,6 +327,8 @@
     }
 
     function newTab($id) {
+        alert('wow');
+        return;
         $.ajax({
             type: 'PUT',
             url: "/update-notification",
