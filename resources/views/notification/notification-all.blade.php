@@ -331,7 +331,15 @@
                 success: function(data) {
                     if (data['redirect'] == true) {
                         var url = 'view-receipt/' + data['id'];
-                        try {
+                        var form = document.createElement("form");
+                        form.id = "view-receipt-once";
+                        form.method = "GET";
+                        form.action = url;
+                        form.target = "print_popup";
+                        document.body.appendChild(form);
+                        form.submit();
+                        document.getElementById("view-receipt-once").remove();
+                        /* try {
                             var importantStuff = window.open(url,
                                 'print_popup');
                             importantStuff.document.write('Loading preview...');
@@ -347,7 +355,7 @@
                             document.body.appendChild(form);
                             form.submit();
                             document.getElementById("view-receipt-once").remove();
-                        }
+                        } */
                         /* if (!importantStuff || importantStuff.closed ||
                             typeof importantStuff
                             .closed == 'undefined') {
