@@ -333,16 +333,23 @@
                         var url = 'view-receipt/' + data['id'];
                         var importantStuff = window.open(url,
                             'print_popup');
-                        if (!importantStuff || importantStuff.closed || typeof importantStuff
+                        if (!importantStuff || importantStuff.closed ||
+                            typeof importantStuff
                             .closed == 'undefined') {
                             console.log('block!!');
-                            document.location.href = url;
+                            var form = document.createElement("form");
+                            form.id = "view-receipt-once";
+                            form.method = "GET";
+                            form.action = 'view-receipt/' + data['id'];
+                            form.target = "print_popup";
+                            document.body.appendChild(form);
+                            form.submit();
+                            document.getElementById("view-receipt-once").remove();
                         } else {
                             console.log('accessable');
                             importantStuff.document.write('Loading preview...');
                             importantStuff.location.href = url;
                         }
-
                         /* e.currentTarget.setAttribute('onClick', window.open(
                             'view-receipt/' + data['id'], "print_popup")); */
                         /* try {
