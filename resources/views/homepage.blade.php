@@ -1230,7 +1230,7 @@ http://www.tooplate.com/view/2095-level
                                 var created_at_message = days_ago + " day ago";
                             } else {
                                 var created_at_message = days_ago + " days ago";
-                            }
+                            }//1
                         } else if (moment_now.diff(moment_created_at, 'hours') > 0) {
                             var hours_ago = moment_now.diff(moment_created_at, 'hours');
                             if (hours_ago <= 1) {
