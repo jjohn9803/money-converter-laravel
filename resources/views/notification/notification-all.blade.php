@@ -250,6 +250,7 @@
                 if (!compareArrays(arrayWithSpecificKey($notification, ['updated_at']),
                         arrayWithSpecificKey($notification_temp, ['updated_at']))) {
                     $notification = $notification_temp;
+                    alert('something change?');
                     console.log('something change?');
                     refreshNotificationList();
                 }
