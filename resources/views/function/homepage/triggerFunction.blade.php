@@ -102,6 +102,7 @@
     });
 
     $('#btnGetStarted').on('click', function(e) {
+        var app_timezone = "{!! env('APP_TIMEZONE') !!}";
         var verified_type = {!! json_encode($verified) !!};
         $('#btnGetStarted').attr('data-target', '#exampleModal');
         //var wh_start = $home_pages.find(obj => obj.name == 'Working Hours')['value']['start'];
@@ -129,7 +130,7 @@
             return false;
         } */
 
-        if (!moment().isBetween(moment(wh_start, 'hh:mm:ss'), moment(wh_end, 'hh:mm:ss')) && wh_start !=
+        if (!moment.tz(app_timezone).isBetween(moment(wh_start, 'hh:mm:ss'), moment(wh_end, 'hh:mm:ss')) && wh_start !=
             wh_end) {
             Swal.fire(
                 "{!! __('content.swal.warning') !!}",

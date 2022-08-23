@@ -248,6 +248,7 @@
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.26.0/moment.min.js"></script>
+    <script src="https://momentjs.com/downloads/moment-timezone-with-data.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/1.1.1/js/bootstrap-multiselect.js"
         integrity="sha512-e6Nk3mhokFywlEPtnkGmop6rHh6maUqL0T65yOkbSsJ3/y9yiwb+LzFoSTJM/a4j/gKwh/y/pHiSLxE82ARhJA=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -259,6 +260,7 @@
     var status;
     var validRecipientReceipt = false;
     var validAttachReceipt = false;
+    var app_timezone = "{!!env('APP_TIMEZONE')!!}";
     $transaction_history = [];
     //$status = -1;
     //var status = -1;
@@ -702,7 +704,7 @@
             $('#btnConfirm').val($id);
             transaction_interval_run = true;
             status = $data['status'];
-            start = moment();
+            start = moment.tz(app_timezone);
             end = moment($data['created_at']).add(10, 'minutes');
             refreshTimer();
             getStatus();
@@ -713,7 +715,7 @@
 
     function refreshTimer() {
         console.log('refreshTimer');
-        var start = moment();
+        var start = moment.tz(app_timezone);
         var duration = moment.duration(end.diff(start));
         var minutes = duration.minutes();
         var seconds = duration.seconds();

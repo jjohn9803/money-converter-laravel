@@ -51,6 +51,7 @@
     </div>
 </div>
 <script>
+    var app_timezone = "{!!env('APP_TIMEZONE')!!}";
     var timerInterval = 0;
     var momentCooldownSentEmailInit;
     var cooldownSentEmailDuration;
@@ -147,7 +148,7 @@
             $('#remember_section').html('');
             $('#btnSwitch').html("{!! __('content.modal.login.reset.switch') !!}");
             $('#btnSwitchForgetPassword').html('');
-            var seconds_ago = moment().diff(momentCooldownSentEmailInit, 'seconds');
+            var seconds_ago = moment.tz(app_timezone).diff(momentCooldownSentEmailInit, 'seconds');
             timerInterval = cooldownSentEmailDuration - seconds_ago;
             if (timerInterval > 0) {
                 $('#btnLogin').prop("disabled", true);
@@ -339,11 +340,11 @@
     });
 
     function cooldownSentEmail(duration) {
-        momentCooldownSentEmailInit = moment();
+        momentCooldownSentEmailInit = moment(app_timezone);
         cooldownSentEmailDuration = duration;
-        timerInterval = moment().diff(momentCooldownSentEmailInit, 'seconds');
+        timerInterval = moment(app_timezone).diff(momentCooldownSentEmailInit, 'seconds');
         var timerSentEmail = setInterval(() => {
-            var seconds_ago = moment().diff(momentCooldownSentEmailInit, 'seconds');
+            var seconds_ago = moment(app_timezone).diff(momentCooldownSentEmailInit, 'seconds');
             timerInterval = cooldownSentEmailDuration - seconds_ago
             //timerInterval -= 1000;
             if ($('#loginModalLongTitle').html() === "{!! __('content.modal.login.reset.title') !!}") {

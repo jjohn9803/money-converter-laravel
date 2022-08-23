@@ -271,6 +271,7 @@
 <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.26.0/moment.min.js"></script>
+<script src="https://momentjs.com/downloads/moment-timezone-with-data.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js"></script>
 {{-- <script>
     $(document).ready(function(e) {
@@ -282,6 +283,7 @@
     });
 </script> --}}
 <script>
+    var app_timezone = "{!!env('APP_TIMEZONE')!!}";
     $('#homepage-tel').attr("onclick", "copyToClipboard('" + {!! json_encode($home_page_tel) !!} + "');");
     $('#homepage-email').attr("onclick", "copyToClipboard('" + {!! json_encode($home_page_email) !!} + "');");
 
@@ -326,7 +328,7 @@
     }, 3000);
 
     function refreshTimer() {
-        var start = moment();
+        var start = moment.tz(app_timezone);
         var duration = moment.duration(end.diff(start));
         var minutes = duration.minutes();
         var seconds = duration.seconds();
