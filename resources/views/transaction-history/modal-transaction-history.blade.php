@@ -260,7 +260,7 @@
     var status;
     var validRecipientReceipt = false;
     var validAttachReceipt = false;
-    var app_timezone = "{!!env('APP_TIMEZONE')!!}";
+    var app_timezone = "{!! env('APP_TIMEZONE') !!}";
     $transaction_history = [];
     //$status = -1;
     //var status = -1;
@@ -705,7 +705,7 @@
             transaction_interval_run = true;
             status = $data['status'];
             start = moment.tz(app_timezone);
-            end = moment.tz($data['created_at'],app_timezone).add(10, 'minutes');
+            end = moment.tz($data['created_at'], app_timezone).add(10, 'minutes');
             refreshTimer();
             getStatus();
             //console.log($data);
