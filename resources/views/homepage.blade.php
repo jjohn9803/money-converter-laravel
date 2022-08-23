@@ -1340,9 +1340,9 @@ http://www.tooplate.com/view/2095-level
                                 if (!readOnly) {
                                     if (data['redirect'] == true) {
                                         var url = 'view-receipt/' + data['id'];
-                                        var importantStuff = window.open(url,
-                                            'print_popup');
                                         try {
+                                            var importantStuff = window.open(url,
+                                                'print_popup');
                                             importantStuff.document.write('Loading preview...');
                                             importantStuff.location.href = url;
                                             console.log('accessable');
