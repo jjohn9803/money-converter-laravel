@@ -11,7 +11,7 @@
         'from_max_amt'=>'600',
         'from_curr_name'=>'SGB',
         ])}}</title> --}}
-    <title>{{ __('content.title') }}</title>
+    <title>1{{ __('content.title') }}</title>
     {{-- <title>{{ __('content.title') }}</title> --}}
     <link rel="icon" type="image/x-icon" href="{{ asset('assets/favicon.ico') }}">
     <!--
