@@ -601,6 +601,9 @@ http://www.tooplate.com/view/2095-level
         $('#section-title').on("animationend", function() {
             $(this).removeClass('w3-animate-zoom');
         });
+        $('#data-sm-title').on("animationend", function() {
+            $(this).removeClass('w3-animate-zoom');
+        });
         /* $('#title_from_country').on("animationend", function() {
             $(this).removeClass('w3-animate-zoom');
         });
@@ -697,6 +700,7 @@ http://www.tooplate.com/view/2095-level
             $('#title_to_country').html(to_country_name);
             $('#data-sm-title').html("{!! __('content.index-sm.title', ['c1' => '"+from_country_name+"', 'c2' => '"+to_country_name+"']) !!}");
             $('#section-title').addClass('w3-animate-zoom');
+            $('#data-sm-title').addClass('w3-animate-zoom');
             /* $('#title_from_country').addClass('w3-animate-zoom');
             $('#title_to_country').addClass('w3-animate-zoom'); */
             $('#form_input_from_country').attr('value', from_country_id);
@@ -1318,8 +1322,8 @@ http://www.tooplate.com/view/2095-level
                     });
                     if ($update_check != $new_update_check || force == true) {
                         $update_check = $new_update_check;
-                        if(force)console.log('forced!')
-                        if($active)console.log('active~');
+                        if (force) console.log('forced!')
+                        if ($active) console.log('active~');
                         console.log('something change?');
                         $('#notificationsBody').html($new_body);
                         $('#notification_count').html($notification_unread_count);
@@ -1562,6 +1566,28 @@ http://www.tooplate.com/view/2095-level
                 });
                 $('#homepage-data1').html(parseInt($home_pages_data1) * percent_home_page);
             }, 100); */
+
+            var screenWidth = $(document).width();
+            triggerScreenWidth();
+            window.addEventListener('resize', function() {
+                screenWidth = $(document).width();
+                triggerScreenWidth();
+            });
+
+            function triggerScreenWidth() {
+                console.log('triggerScreenWidth');
+                if (screenWidth < 500) {
+                    console.log('small screen');
+                    $('#appbar-reviews').css('display', 'none');
+                    $('#section-comment').css('display', 'none');
+                    $('#section-comment-sm').css('display', 'block');
+                } else {
+                    console.log('big screen');
+                    $('#appbar-reviews').css('display', 'block');
+                    $('#section-comment').css('display', 'block');
+                    $('#section-comment-sm').css('display', 'none');
+                }
+            }
         });
     </script>
     <script>

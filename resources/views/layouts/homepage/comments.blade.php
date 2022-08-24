@@ -197,26 +197,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/gsap/1.19.1/TweenMax.min.js"></script>
 <script>
-    var screenWidth = $(document).width();
-    triggerScreenWidth();
-    window.addEventListener('resize', function() {
-        screenWidth = $(document).width();
-        triggerScreenWidth();
-    });
-
-    function triggerScreenWidth() {
-        console.log('triggerScreenWidth');
-        if (screenWidth < 500) {
-            $('#appbar-reviews').css('display', 'none');
-            $('#section-comment').css('display', 'none');
-            $('#section-comment-sm').css('display', 'block');
-        } else {
-            $('#section-comment').css('display', 'block');
-            $('#appbar-reviews').css('display', 'block');
-            $('#section-comment-sm').css('display', 'none');
-        }
-    }
-
     function startAnim($array) {
         if ($array.length >= 4) {
             TweenMax.fromTo($array[0], 0.5, {
@@ -282,23 +262,6 @@
         } else {
             $('#card-slider').append('<p>Sorry, carousel should contain more than 3 slides</p>')
         }
-    }
-
-    // Determines if the passed element is overflowing its bounds,
-    // either vertically or horizontally.
-    // Will temporarily modify the "overflow" style to detect this
-    // if necessary.
-    function checkOverflow(el) {
-        var curOverflow = el.style.overflow;
-        if (!curOverflow || curOverflow === "visible")
-            el.style.overflow = "hidden";
-
-        var isOverflowing = el.clientWidth < el.scrollWidth ||
-            el.clientHeight < el.scrollHeight;
-
-        el.style.overflow = curOverflow;
-
-        return isOverflowing;
     }
 
     function scrollWithAnimation(duration) {
