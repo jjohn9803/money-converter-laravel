@@ -205,6 +205,7 @@
     });
 
     function triggerScreenWidth() {
+        console.log('triggerScreenWidth');
         if (screenWidth < 500) {
             $('#appbar-reviews').css('display', 'none');
             $('#section-comment').css('display', 'none');
