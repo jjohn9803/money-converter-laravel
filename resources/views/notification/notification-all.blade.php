@@ -291,8 +291,10 @@
             } else if (type == 5) {
                 message += "{!! __('content.notification.reject', ['order' => '"+t_order+"']) !!}";
             } else if (type == 6) {
-                message += "{!! __('content.notification.error', ['order' => '"+t_order+"']) !!}";
+                message += "{!! __('content.notification.reject-timeout', ['order' => '"+t_order+"']) !!}";
             } else if (type == 7) {
+                message += "{!! __('content.notification.error', ['order' => '"+t_order+"']) !!}";
+            } else if (type == 8) {
                 message += "";
             }
         }
