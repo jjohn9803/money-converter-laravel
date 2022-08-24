@@ -115,18 +115,18 @@ Route::group(['middleware' => ['verified', 'setLocale']], function () {
 
 
 
-Route::get('/fx', [FxController::class, 'fx_rate']);
+/* Route::get('/fx', [FxController::class, 'fx_rate']);
 Route::get('/getCurr', [CurrencyController::class, 'getCurrencyWithCountry']);
-Route::get('/getAlpha2Code', [CountryController::class, 'getAlpha2Code']);
+Route::get('/getAlpha2Code', [CountryController::class, 'getAlpha2Code']); */
 
 
-Route::get('/api', [CountryController::class, 'index']);
+//Route::get('/api', [CountryController::class, 'index']);
 
 /* Route::get('/', function () {
     return view('homepage');
 }); */
 
-Route::get('/1', function () {
+/* Route::get('/1', function () {
     return view('currencies');
 });
 
@@ -137,3 +137,4 @@ Route::get('/2', function () {
 Route::get('/3', function () {
     return view('layouts/modal-transaction-history');
 });
+ */
