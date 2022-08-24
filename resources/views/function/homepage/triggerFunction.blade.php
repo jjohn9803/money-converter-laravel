@@ -80,6 +80,7 @@
                             /* $('#myform').attr('onsubmit',
                                 "popupwindow('about:blank','print_popup','500','820')"); */
                             $('#myform').submit();
+                            $('#myform').modal('hide');
                             //location.reload();
                             //$("#exampleModal .close").click()
                             /* $("#exampleModal").modal("hide"); */
