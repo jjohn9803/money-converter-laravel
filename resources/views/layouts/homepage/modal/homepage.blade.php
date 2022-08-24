@@ -139,6 +139,13 @@
     </div>
 </div>
 <script>
+    $("#inputUserBankAccModal").on('input', allowDigitsOnlyAccountNo);
+    $("#inputUserReceiveBankAccModal").on('input', allowDigitsOnlyAccountNo);
+    
+    function allowDigitsOnlyAccountNo(e) {
+        e.target.value = e.target.value.replace(/[^0-9]/g, "");
+    }
+
     $('#error-from_amount').on("animationend", function() {
         $(this).removeClass('notificationText');
         $('#inputSendAmountModal').removeClass('is-invalid');
