@@ -247,10 +247,16 @@
                         $notification_temp.push(value);
                     });
                 });
+                console.log(arrayWithSpecificKey($notification, ['updated_at']));
+                console.log(arrayWithSpecificKey($notification_temp, ['updated_at']));
+                /* console.log(arrayWithSpecificKey($notification, ['updated_at']) == arrayWithSpecificKey(
+                    $notification_temp, ['updated_at'])); */
+                /* console.log(JSON.arrayWithSpecificKey($notification, ['updated_at']) == arrayWithSpecificKey(
+                    $notification_temp, ['updated_at'])); */
                 if (!compareArrays(arrayWithSpecificKey($notification, ['updated_at']),
                         arrayWithSpecificKey($notification_temp, ['updated_at']))) {
                     $notification = $notification_temp;
-                    alert('something change?');
+                    //alert('something change?');
                     console.log('something change?');
                     refreshNotificationList();
                 }
@@ -403,22 +409,19 @@
             "</div>")
     } */
 
-    function compareArrays(arr1, arr2) {
-        // check the length
-        if (arr1.length != arr2.length) {
-            return false;
-        } else {
-            let result = false;
-            // comparing each element of array 
-            for (let i = 0; i < arr1.length; i++) {
-                if (JSON.stringify(arr1[i]) != JSON.stringify(arr2[i])) {
-                    return false;
-                } else {
-                    result = true;
-                }
-            }
-            return result;
+    function compareArrays(a, b) {
+        if (a === b) return true;
+        if (a == null || b == null) return false;
+        if (a.length !== b.length) return false;
+        // If you don't care about the order of the elements inside
+        // the array, you should sort both arrays here.
+        // Please note that calling sort on an array will modify that array.
+        // you might want to clone your array first.
+
+        for (var i = 0; i < a.length; ++i) {
+            if (a[i]['updated_at'] !== b[i]['updated_at']) return false;
         }
+        return true;
     }
 
     function popupwindow(url, title, w, h) {

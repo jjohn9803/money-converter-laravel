@@ -313,7 +313,7 @@
                 "_token": "{{ csrf_token() }}",
             },
             success: function(data) {
-                retrieveNotification();
+                retrieveNotification(true);
             },
             error: function(data) {
                 console.log(data);

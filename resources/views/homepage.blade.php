@@ -993,7 +993,12 @@ http://www.tooplate.com/view/2095-level
             $notification_unread_count = 0;
             retrieveNotification();
             $active = false;
-            $notification_init_alert = false;
+            //$notification_init_alert = false;
+            $update_check = "";
+            $notification_id = 'notification_count_' + {!! Auth::user()->id !!};
+            console.log('session');
+            console.log(localStorage.getItem($notification_id));
+            console.log('getting...');
             /* var active = false;
             var notificationAlert = 0; */
             var notification_countdown = setInterval(function() {
@@ -1035,58 +1040,26 @@ http://www.tooplate.com/view/2095-level
                 }, timeoutTime);
             } */
 
-            function retrieveNotification() {
+            function retrieveNotification(force = false) {
                 $.ajax({
                     type: 'GET',
                     url: "/get-notification",
                     success: function(result) {
-                        $notification_temp = [];
+                        $notification_list = [];
                         $.each(result, function() {
                             $.each(this, function(key, value) {
-                                $notification_temp.push(value);
+                                $notification_list.push(value);
                             });
                         });
-                        refreshNotificationList($notification_list, $notification_temp);
-                        return;
-                        /* if (notificationAlert == 1) {
-                            triggerNotificationAlert();
-                            notificationAlert = 2;
-                        } */
-                        if (!compareArrays($notification_list, $notification_temp)) {
+                        refreshNotificationList(force);
+                        /* console.log('retrieving');
+                        if (!compareArrays(arrayWithSpecificKey($notification_list, ['updated_at']),
+                                arrayWithSpecificKey($notification_temp, ['updated_at']))) {
                             $notification_list = $notification_temp;
-                            refreshNotificationList();
-                            /* if (notificationAlert == 2) {
-                                triggerNotificationAlert();
-                            } */
-                            /* var activeListerner = setInterval(function() {
-                                if (active) {
-                                    clearInterval(activeListerner);
-                                    
-                                }
-                            }, 500); */
-                            /* var audio = document.getElementById('notification-alert-sound');
-                            setTimeout(function() {
-                                audio.play();
-                                $('body').addClass('shake-animation');
-                                //$('#notificationLink > i').addClass('shake-animation');
-                                $('#notificationLink > i').css('color', 'yellow');
-                                if (active) {
-                                    setTimeout(function() {
-                                        audio.load(); // 1.5秒后关闭音频通知
-                                        $('body').removeClass('shake-animation');
-                                        //$('#notificationLink > i').removeClass('shake-animation');
-                                        $('#notificationLink > i').css('color', '');
-                                    }, 500);
-                                }
-
-                            }, 1500); */
-                        }
-                        /* if(($notification_list.length > 0) && ($("#notificationsBody").html().trim()=='')){
-                            $('#notification_count').css('display','inline');
-                        }else{
-                            $('#notification_count').css('display','none');
+                            //alert('something change?');
+                            console.log('something change?');
+                            
                         } */
-                        //refreshNotificationList();
                     },
                     error: function(data) {
                         console.log('nande');
@@ -1108,7 +1081,20 @@ http://www.tooplate.com/view/2095-level
                     }, 500);
                 }
 
-                function compareArrays(arr1, arr2, exclude = []) {
+                function compareArrays(a, b) {
+                    if (a === b) return true;
+                    if (a == null || b == null) return false;
+                    if (a.length !== b.length) return false;
+                    // If you don't care about the order of the elements inside
+                    // the array, you should sort both arrays here.
+                    // Please note that calling sort on an array will modify that array.
+                    // you might want to clone your array first.
+
+                    for (var i = 0; i < a.length; ++i) {
+                        if (a[i]['updated_at'] !== b[i]['updated_at']) return false;
+                    }
+                    return true;
+
                     // check the length
                     if (arr1.length != arr2.length) {
                         return false;
@@ -1179,12 +1165,13 @@ http://www.tooplate.com/view/2095-level
                     return new_arr;
                 }
 
-                function refreshNotificationList(notification_list, notification_temp) {
-                    var notification_alert = !compareArrays(arrayWithSpecificKey(notification_list, ['created_at']),
-                        arrayWithSpecificKey(notification_temp, ['created_at']));
-                    $notification_list = notification_temp;
+                function refreshNotificationList(force = false) {
+                    /* var notification_alert = !compareArrays(arrayWithSpecificKey(notification_list, ['updated_at']),
+                        arrayWithSpecificKey(notification_temp, ['updated_at'])); */
                     $notification_unread_count = 0;
+                    //localStorage.setItem('myItem', JSON.stringify(myMultidimensionalArray))
                     $new_body = '';
+                    $new_update_check = '';
                     //$('#notificationsBody').html('');
                     $notification_list.forEach(element => {
                         var ref_no = '';
@@ -1230,7 +1217,7 @@ http://www.tooplate.com/view/2095-level
                                 var created_at_message = "{!! __('content.notification-container.day-ago', ['v' => '"+days_ago+"']) !!}";
                             } else {
                                 var created_at_message = "{!! __('content.notification-container.days-ago', ['v' => '"+days_ago+"']) !!}";
-                            }//1
+                            }
                         } else if (moment_now.diff(moment_created_at, 'hours') > 0) {
                             var hours_ago = moment_now.diff(moment_created_at, 'hours');
                             if (hours_ago <= 1) {
@@ -1327,8 +1314,31 @@ http://www.tooplate.com/view/2095-level
                         }
                         body += "</a>";
                         $new_body += body;
+                        $new_update_check += created_at_message;
                     });
-                    $('#notificationsBody').html($new_body);
+                    if ($update_check != $new_update_check || force == true) {
+                        $update_check = $new_update_check;
+                        if(force)console.log('forced!')
+                        if($active)console.log('active~');
+                        console.log('something change?');
+                        $('#notificationsBody').html($new_body);
+                        $('#notification_count').html($notification_unread_count);
+                        if ($notification_unread_count > 0 && localStorage.getItem($notification_id) !=
+                            $notification_unread_count && $active) {
+                            localStorage.setItem($notification_id, $notification_unread_count);
+                            triggerNotificationAlert();
+                            console.log('ringing~');
+                            /* if (($notification_unread_count > 0 && $active) && (!$notification_init_alert)) {
+                                if (!$notification_init_alert) $notification_init_alert = true;
+                                localStorage.setItem($notification_id, $notification_unread_count);
+                                triggerNotificationAlert();
+                                console.log('ringing~');
+                            } */
+                        }
+
+                    }
+
+
                     $('.notificationMessageText').on('click', function(e) {
                         /* Swal.fire({
                             icon: 'info',
@@ -1386,11 +1396,6 @@ http://www.tooplate.com/view/2095-level
                             }
                         });
                     });
-                    $('#notification_count').html($notification_unread_count);
-                    if (($notification_unread_count > 0 && $active) && (!$notification_init_alert || notification_alert)) {
-                        if (!$notification_init_alert) $notification_init_alert = true;
-                        triggerNotificationAlert();
-                    }
                 }
             }
 
